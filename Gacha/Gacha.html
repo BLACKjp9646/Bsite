@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>ガチャ確率計算機</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+	<style>
+		#bold{
+			font-weight: bold;
+		}
+		#chance_input_table,#chance_detail_input_table{
+			border-bottom: solid 1.5px;
+			padding-bottom: 10px;
+		}
+		#chance_input_table table,#chance_detail_input_table table{
+			width: 90%;
+			margin: 0 30% 10px 10%;
+			text-align: left;
+		}
+		#chance_input_table table tr td input,#chance_detail_input_table table tr td input{
+			width: 100px;
+		}
+		#chance_input_table table tr td select,#chance_detail_input_table table tr td select{
+			width: 200px;
+		}
+		#chance_table{
+			padding: 20px 0;
+		}
+		#chance_table table{
+			width: 80%;
+			margin: 0 auto 10px auto;
+		}
+		#chance_table table tr td{
+			border: 1px solid;
+			height: 50px;
+			width: 14%;
+		}
+		#chance_table table tr td:first-child{
+			background-color: aqua;
+			border-right: solid 3px;
+		}
+		#chance_table table tr #chance_active{
+			color: red;
+		}
+		#chance_detail_table tr td input{
+			width: 80px;
+			margin: 0 auto 10px auto;
+		}
+		#chance_detail_table tr td{
+			height: 50px;
+			width: 12%;
+		}
+		#chance_detail_table tr:first-child{
+			border-bottom:solid 3px black;
+			font-weight: bold;
+			background-color: orange;
+		}
+		#chance_detail_table tr td:first-child{
+			border-right:solid 3px black;
+			font-weight: bold;
+		}
+		#chance_detail_table tr:first-child td:first-child{
+			background-image: linear-gradient(to right top, transparent calc(50% - 2px), #000000 50%, #000000 calc(50% + 2px), transparent calc(50% + 2px));
+			background-color: rgb(174, 174, 174);
+		}
+		#chance_detail_table{
+			border: black solid 3px;
+		}
+		#Gacha_manual{
+			text-align: left;
+		}
+	</style>
+</head>
+<body id="top" class="bg_math">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_math">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+					<a class="navbar-brand" href="#chance_detail_input_table">
+						<li>Detail</li>
+					</a>
+					<a class="navbar-brand" href="#manual">
+						<li>Manual</li>
+					</a>
+			</ul>
+			</div>
+		</nav>
+	</header>
+    <main class="row container">
+        <div class="col-2" id="sub">
+            <p id="sub_title">更新履歴</p>
+            <ul>
+                <li>2024/06/18:ガチャ確率計算機実装</li>
+            </ul>
+        </div>
+        <div class="col-8" id="main" style="text-align: center;">
+            <h2 id="sub_title">ガチャ確率計算機</h2>
+			<div id="chance_result">
+				<h3 id="bold">排出率*%を*回引いて当たる確率は</h3>
+				<h2 id="bold">*%</h2>
+			</div>
+			<div id="chance_input_table">
+			<table>
+				<tr>
+					<td>排出率</td>
+					<td><input id="chance_num" type="number" value="0.8" placeholder="値1">%</td>
+					<td><select id="change_chance_num">
+						<option value="0.8">FGOの星5確率(0.8%)</option>
+						<option value="0.6">原神の星5キャラ確率(0.6%)</option>
+						<option value="1">APEXのスパレジェ確率(1%)</option>
+						<option value="2">アークナイツの星6確率(2%)</option>
+						<option value="12">モンストの最高レア確率(12%)</option>
+						<option value="0.5">パズドラの最高レア確率(0.5%)</option>
+						<option value="9">にゃんこの超猫祭超激レア確率(9%)</option>
+						<option value="1.5">シャドバのレジェンド確率(1.5%)</option>
+						<option value="4">NIKKEのSSR確率(4%)</option>
+						<option value="8">PSO2NGSのOP(ルクス1個)付与確率(8%)</option>
+						<option value="10">PSO2のOP(ガーディアンソール)付与確率(10%)</option>
+						<option value="3">ウマ娘のSSR確率(3%)</option>
+						<option value="1.3">リンバスE.G.O確率(1.3%)</option>
+						<option value="0.002">宝くじで100万以上がでる確率(0.002%)</option>
+						<option value="0">虚無確率(0%)</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>回数</td>
+					<td><input id="chance_count" type="number" value="100" placeholder="値2">回</td>
+					<td>
+						<select id="change_chance_count">
+							<option value="100">100回</option>
+							<option value="10">10回</option>
+							<option value="20">20回</option>
+							<option value="50">50回</option>
+							<option value="200">200回</option>
+							<option value="500">500回</option>
+							<option value="1000">1000回</option>
+							<option value="110">110回</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<input type="button" class="btn btn-primary" id="chance_math" value="算出" style="width: 150px">
+			</div>
+			<div id="chance_table">
+			<table>
+				<tr>
+					<td>排出数</td>
+					<td>0枚</td>
+					<td>1枚</td>
+					<td>2枚</td>
+					<td>3枚</td>
+					<td>4枚</td>
+					<td>5枚以上</td>
+				</tr>
+				<tr id="chance_table_result">
+					<td>確率</td>
+					<td>*%</td>
+					<td>*%</td>
+					<td>*%</td>
+					<td>*%</td>
+					<td>*%</td>
+					<td>*%</td>
+				</tr>
+			</table>
+		</div>
+			<h2 id="sub_title">ガチャ確率計算機(詳細版)</h2>
+			<div id="chance_detail_input_table">
+				<table>
+					<tr>
+						<td>排出率</td>
+						<td><input id="chance_detail_num" type="number" value="0.8" placeholder="詳細値1">%</td>
+						<td>小数点以下桁数</td>
+						<td><input id="chance_detail_digit" type="number" value="2" placeholder="詳細値2">桁</td>
+					</tr>
+					<tr>
+						<td>回数ボーナス</td>
+						<td><input id="chance_detail_bonus" type="number" value="" placeholder="詳細値3">回に1回追加</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				※入力可能な試行回数の値に回数ボーナスは適応されません<br>
+				<input type="button" class="btn btn-primary" id="chance_detail_math" value="算出" style="width: 150px">
+			</div>
+			<div id="chance_table">
+			<table class="table" id="chance_detail_table">
+				<thead>試行回数</thead>
+				<tr id="detail_count_table">
+					<td></td>
+					<td>10</td>
+					<td>20</td>
+					<td>50</td>
+					<td>100</td>
+					<td>200</td>
+					<td><input id="chance_detail_count" type="number" value="300" style="text-align: center;" placeholder="詳細値4"></td>
+				</tr>
+				<tr id="detail_table_1">
+					<td>0枚</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="detail_table_2">
+					<td>1枚</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="detail_table_3">
+					<td>2枚</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="detail_table_4">
+					<td>3枚</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="detail_table_5">
+					<td>4枚</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="detail_table_6">
+					<td>5枚</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="detail_table_7">
+					<td><input id="chance_detail_hitcount" type="number" value="6" style="text-align: center;" placeholder="詳細値5"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div id="manual">
+			<h2 id="sub_title">使い方</h2>
+			<h4>簡易版の使い方</h4>
+			<ul id="Gacha_manual">
+				<li>排出率(値1),回数(値2)に、それぞれ値を入力してください。</li>
+				<li>「算出」ボタンを押すと、１個以上出る確率と各個数ごとの確率が出ます。</li>
+				<li>いろんなゲームのPU算出確率をテンプレートとして用意したのでご活用ください。</li>
+			</ul>
+			<h4>詳細版の使い方</h4>
+			<ul id="Gacha_manual">
+				<li>排出率(詳細値1),桁数(詳細値2)に、それぞれ値を入力してください。</li>
+				<li>回数ボーナス(詳細値3)に値を入れると表の各数値にボーナスが適用されます。要らなかったら0を入れてください。</li>
+				<li>「算出」ボタンを押すと、各個数,回数ごとの確率が出ます。</li>
+				<li>回数(詳細値4),排出数(詳細値5)に値を入れるとその値が表に適用されます。</li>
+			</ul>
+			<div id="Gacha_manual">
+			<h5>※表示しない小数点は全て切り捨てで表示しています。</h5>
+			<h5>※回数,桁数,回数ボーナスは整数のみ対応です。それ以外の値を入れるとエラー吐きます。</h5>
+			<h5>※排出率が極端に低いと表の%表記がおかしくなります。できれば良識の範囲内の値でお願いします。</h5>
+			</div>
+		</div>
+		</div>
+		
+        </div>
+		
+        <div class="col-2" id="sub">
+            
+        </div>
+    </main>
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+	<script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<script src="//unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+	<script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+	<script src="//unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <script src="./main.js" type="text/babel" defer></script>
+	<script src="../sub.js"></script>
+</body>
+</html>

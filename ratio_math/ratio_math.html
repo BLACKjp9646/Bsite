@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>比率計算</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+	<style>
+		#root{
+			text-align: left;
+			font-weight: bold;
+			width: 100%;
+		}
+		#root p button{
+			width: 30%;
+			height: 50px;
+			border-radius: 5px;
+		}
+		.ratio_input{
+			width: 20%;
+		}
+		#alert_error{
+			color: red;
+		}
+		#ratio_math_manual{
+			list-style:decimal;
+			text-align: left;
+		}
+		#ratio_math_table{
+			width: 100%;
+			border: 1px solid;
+			text-align: left;
+			margin-bottom: 30px;
+		}
+		#ratio_math_table tr td:first-child{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body id="top" class="bg_math">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_math">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+					<a class="navbar-brand" href="#ratio_math_manual">
+						<li>Manual</li>
+					</a>
+			</ul>
+			</div>
+		</nav>
+	</header>
+    <main class="row container">
+        <div class="col-2" id="sub">
+            <p id="sub_title">更新履歴</p>
+            <ul>
+                <li>2024/06/07:比率計算実装</li>
+            </ul>
+        </div>
+        <div class="col-10" id="main" style="text-align: center;">
+            <h2 id="sub_title">比率計算</h2>
+	<div id="root">
+
+	</div>
+	<div>
+		<h2 id="sub_title">使い方</h2>
+		<ul id="ratio_math_manual">
+			<li>「値1」「値2」欄に、比率を算出したい値を入力してください。</li>
+			<li>「計算する」ボタンを押すと、2値の比率を算出します。</li>
+			<li>「基準値の変更」欄の値を変更するとx:1の1の部分を変更できます。</li>
+			<li>目標比を求めるには基準にしたい比とx:yのどちらかの値が必要です。</li>
+			<li>x:yのyの値を求めるなら「値1」欄にxの値を、その右の「値4」「値5」欄に基準にしたい比を入力してください。</li>
+		</ul>
+	</div>
+	<div>
+		<h2 id="sub_title">各計算式</h2>
+		<table id="ratio_math_table">
+			<th><tr>
+			前提としてX:Yと記載します。
+			</th></tr>
+			<tr>
+				<td>基準値が左の値のとき</td>
+				<td>X:Y=基準値の値:Y' ← (Y÷X)×基準値の値</td>
+			</tr>
+			<tr>
+				<td>基準値が右の値のとき</td>
+				<td>X:Y=X':基準値の値 ← (X÷Y)×基準値の値</td>
+			</tr>
+			<tr>
+				<td>%表記のとき</td>
+				<td>X:Y=X':Y'(%) ← X' = X÷(X+Y)、Y' = Y÷(X+Y)</td>
+			</tr>
+			<tr>
+				<td>整数比のとき</td>
+				<td>X:Y=X':Y'(X>Y) ← X'=X÷(XとYの最大公約数)、Y'=Y÷(XとYの最大公約数)</td>
+			</tr>
+			<tr>
+				<td>目標値yを求めるとき</td>
+				<td>X:Y=X':Y' ← Y = (XxY')÷X'</td>
+			</tr>
+		</table>
+
+	</div>
+        </div>
+        <div class="col-2" id="sub">
+            
+        </div>
+    </main>
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+	<script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<script src="//unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+	<script src="//unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+	<script src="//unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <script src="./main.js" type="text/babel" defer></script>
+	<script src="../sub.js"></script>
+</body>
+</html>

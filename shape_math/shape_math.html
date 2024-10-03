@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>図形計算</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    <style>
+        #canvas_container{
+            width: 600px;
+            margin: 0 auto;
+
+        }
+        #canvas{
+            border: solid 1px;
+        }
+        #shape_type_input_table{
+            margin-bottom: 30px;
+			padding-bottom: 10px;
+		}
+		#shape_type_input_table table{
+			width: 90%;
+			margin: 0 30% 10px 10%;
+			text-align: left;
+		}
+        #shape_type_input_table table tr{
+			height: 40px;
+		}
+		#shape_type_input_table table tr td input{
+			width: 100px;
+		}
+		#shape_type_input_table_input_table table tr td select{
+			width: 200px;
+		}
+        #shape_math_ans_Container{
+            margin: 0;
+            border-bottom: solid 1.5px;
+            margin-bottom: 30px;
+			padding-bottom: 10px;
+        }
+        #shape_math_ans_Container div input{
+            width: 50%;
+            height: 50px;
+            margin: 20px 0;
+        }
+        #shape_math_ans_Container div label{
+            width: 40%;
+        }
+        #shape_math_ans_Container div label input{
+            width: 20%;
+            height: 10px;
+            margin: 20px 0 20px 20px;
+        }
+        #shape_math_img_Container{
+            width: 400px;
+            height: 300px;
+        }
+        #shape_math_img_Container img{
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+    </head>
+    <body class="bg_math">
+        <header class="head_active">
+            <nav class="navbar navbar-expand-md nav_math">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/SiteIcon.png">Portfolio
+                    </a>
+                    <ul class="gonav">
+                        <a class="navbar-brand" href="#top">
+                            <li>Top</li>
+                        </a>
+                        <a class="navbar-brand" href="#shape_math_manual">
+                            <li>Manual</li>
+                        </a>
+                </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row container">
+            <div class="col-3" id="sub">
+            <h2 id="sub_title">変更履歴</h2>
+            <ul>
+                <li>2024/07/23:図形計算機実装</li>
+            </ul>
+        </div>
+        <div class="col-8" id="main">
+                <h2 id="sub_title" style="text-align: center;">図形計算</h2>
+                <div id="shape_type_input_table">
+                    <table>
+                        <tr>
+                            <td>図形の形</td>
+                            <td><select id="shape_type">
+                                <option value="1">正方形</option>
+                                <option value="2">長方形</option>
+                                <option value="3">台形</option>
+                                <option value="4">平行四辺形</option>
+                                <option value="5">菱形</option>
+                                <option value="6">直角三角形</option>
+                                <option value="7">二等辺三角形</option>
+                                <option value="8">円形</option>
+                                <option value="9">半円形</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>長さの単位</td>
+                            <td><select id="shape_unit">
+                                <option value="1">mm</option>
+                                <option value="2">cm</option>
+                                <option value="3">m</option>
+                                <option value="4">km</option>
+                                <option value="5">μm</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="shape_type_input_x">
+                            <td>xの長さ</td>
+                            <td><input id="shape_input_x" type="number" placeholder="値1" value="100"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="shape_math_ans_Container" class="row">
+                    <div class="col col-5">
+                    <input class="btn btn-primary" id="shape_type_button" type="button" value="図形表示">
+                    <label id="input_detail_mode"><input type="checkbox" value="detail">詳細モード</label>
+                    <input class="btn btn-primary" id="shape_math_button" type="button" value="計算する">
+                    </div>
+                    <div id="shape_math_img_Container" class="col col-7">
+                    <img id="shape_img" src="./images/seihoukei.png">
+                    </div>
+                </div>
+                <div id="canvas_container">
+                    <canvas id="canvas" width="533px" height="350px"></canvas>
+                </div>
+                <h1>計算結果</h1>
+                <h3 id="shape_math_ans">X×X=</h3>
+                <div>
+                    <h2 id="sub_title">使い方</h2>
+                    <ul id="shape_math_manual">
+                        <li>まず計算したい図形の種類を選択してください。</li>
+                        <li>図形ごとに対応した入力フォームが出るのでxやy,高さなどを入力してください。</li>
+                        <li>「図形表示」を押すと計算する図形の見本図が表示されます。</li>
+                        <li>「計算する」を押すと計算結果が出力されます。また、計算前と後の単位を変更することができます。</li>
+                        <li>詳細モードにチェックを入れると縦横を切り替えたり図形の表示に使う値に変更が入ったりします。ぜひ活用してください。</li>
+                        ※値がある程度大きくなると表示される図形がそれに合わせて縮小します。場合によっては思ったより小さくなるかもしれません。
+                    </ul>
+                </div>
+            </div>
+        
+    </main>
+    <!-- JavaScriptをロードする -->
+    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="main.js"></script>
+    <script src="../sub.js"></script>
+    </body>
+</html>
