@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>ガソリン計算</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    </head>
+    <body class="bg_math">
+        <header class="head_active">
+            <nav class="navbar navbar-expand-md nav_math">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/SiteIcon.png">Portfolio
+                    </a>
+                    <ul class="gonav">
+                        <a class="navbar-brand" href="#top">
+                            <li>Top</li>
+                        </a>
+                </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row container">
+            <div class="col-3" id="sub">
+            <h2 id="sub_title">変更履歴</h2>
+            <ul>
+                <li>2023/11/07:ガソリン計算機実装</li>
+                <li>2024/5/15:デザイン一新</li>
+            </ul>
+        </div>
+        <div class="col-8" id="main">
+                <h2 id="sub_title">ガソリン計算</h2>
+        <p id="gasorin">
+        <label>ガソリン価格<input type="number" id="gasorin_kingaku">円/L</label><br>
+        <label>走行距離<input type="number" id="soukou_kyori">km</label><br>
+        <label>車の燃費<input type="number" id="kuruma_nenpi">km/L</label><br>
+        </p>
+        <button id="btn">Click Here!</button>
+        <br>
+        <p>
+            <span id="result">りざると</span>
+        </p>
+            </div>
+        
+    </main>
+    <!-- JavaScriptをロードする -->
+    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="main.js"></script>
+    <script src="../sub.js"></script>
+    </body>
+</html>

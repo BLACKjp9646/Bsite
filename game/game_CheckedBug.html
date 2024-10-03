@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" href="../style.css">
+        <meta charset="UTF-8"/>
+        <title>確認済みのバグ</title>
+    </head>
+    <body>
+        <header id="top">
+            <a href="../index.html"><h1>いろいろと置いておくサイト</h1></a>
+        </header>
+        <div id="contents">
+            <div class="sub">
+                <h2>変更履歴</h2>
+                <ul>
+                    <li>2024/01/11:確認済バグサイト実装</li>
+                </ul>
+                <h2>ゲーム補足説明</h2>
+                <ul>
+                    <a href="game_cont.html"><li>操作について</li></a>
+                    <a href="game_skill.html"><li>スキルの種類について</li></a>
+                    <a href="game_ability.html"><li>アビリティの補足</li></a>
+                    <a href="game_skillslot.html"><li>スキルスロットについて</li></a>
+                    <a ><li>現在確認済みのバグ</li></a>
+                </ul>
+            </div>
+            <div class="main">
+                
+                
+                    <h3><a href="game.html">←もどる</a></h3>
+                    <h2>現在確認済みのバグ</h2>
+                    <div id="game_bug_container"></div>
+                <ul id="game_bug_li">
+                    <li>武器解除後に無を取得してしまう現象</li>
+                    <li>アジリティアップ、エクストラゲージ、スラストブレイク、ヴォーパルスラストブレイク、ソードコンボエクストラ/マスタリー、HP版アビリティ各種、回復量アップが使えない</li>
+                    <li>メニュー画面でカーソルを合わせたボタンが光り続ける現象</li>
+                    <li>突進してくる敵がプレイヤーの真上に乗ったり壁を飛び越えて飛んでいく現象</li>
+                    <li>ウェポンクラッシュパンチのエフェクトが稀に変な挙動をする</li>
+                    <li>HPが0になった時にアニメーションが適応されない現象</li>
+                    <li>テレポートしたとき稀に地面に埋まる現象</li>
+                    <li>ウェポンスローを特定の場所に投げ込むと一定期間武器が取り出せなくなる現象</li>
+                    <li>レベルアップ時の演出が出てこない、SPが正しく譲渡されない現象</li>
+                </ul>
+                <br>
+                <h2>バグのような仕様について</h2>
+                <ul id="game_bug_QA">
+                    <li>Q:唐突にゲームが始まる、最後の敵を倒したあとが何もない</li>
+                    <li>A:現在はステージ1だけです。そのため倒した後に何もないのが現在の仕様となります。今後はステージを自由に切り替えつつ楽しめるようにしていく予定です。</li>
+                    <br>
+                    <li>Q:武器が勝手に解除される</li>
+                    <li>A:画面右上のゲージが0になると強制的に解除されます。</li>
+                    <br>
+                    <li>Q:テレポート前の箱が消えた</li>
+                    <li>A:回収可能な鉄であるためRキーを押すと回収することができます。回収可能なエフェクトが出ないのはバグです</li>
+                    <br>
+                    <li>Q:敵が上から降って来た</li>
+                    <li>A:現在は仕様としていますが今後変更する可能性が高いです。<div id="torikesi">そもそも上から出す意味とは</div></li>
+                    <br>
+                    <li>Q:ローリング回避中に武器が出て来た</li>
+                    <li>A:一応仕様です。詳しくは言いませんが色々と使えると思いたいです。</li>
+                    
+                </ul>
+            </div>
+            </div>
+    </div>
+    <!-- JavaScriptをロードする -->
+    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="main.js"></script>
+    </body>
+</html>
