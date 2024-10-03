@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>のーたいとる</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    <link rel="stylesheet" href="./custom_fb.css">
+	<style>
+		#font_null{
+			border-bottom: none;
+			padding: 0;
+			list-style: none;
+			background-color: rgb(240, 240, 240);
+			color: black;
+		}
+		#expo_table{
+			width: 95%;
+			margin: 0 auto;
+		}
+		#expo_table tr:first-child{
+			border-bottom: solid 2px;
+			text-align: center;
+		}
+		#expo_table tr td{
+			border: solid 1px;
+		}
+		#expo_table tr td:first-child{
+			width: 15%;
+			border-right: solid 2px;
+			text-align: center;
+		}
+		#expo_table tr td:nth-child(2){
+			width: 20%;
+			text-align: center;
+		}
+		#expo_table tr td:nth-child(3){
+			width: 40%;
+		}
+	</style>
+</head>
+<body id="top">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_fightdebug">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+					<a class="navbar-brand" href="#Conclusion_contents">
+						<li>Conclusion</li>
+					</a>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Header(End) -->
+
+	<!-- Main(Start) -->
+	<main class="row container">
+        <div class="col-2" id="sub">
+            <div>
+                <p>更新履歴</p>
+                <ul>
+                    <li>1</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-8" id="main">
+		<h1>HTMLタグ備忘録</h1>
+        <p>別言語とか使ってると意外とtableってどんな構成だっけ...画像ってどうやって出すっけ...ってなったので
+			パッとみてコレダ！ってなるようにしました。
+		</p>
+		<div id="expo_layout">
+        <h2>ページレイアウト系</h2>
+		<table id="expo_table">
+			<tr>
+				<td>記述タグ</td>
+				<td>実際の表示</td>
+				<td>説明</td>
+				<td>入れられるプロパティ</td>
+			</tr>
+			<tr>
+				<td>&lt;p&gt;&lt;/p&gt;</td>
+				<td id="font_null"><p>pタグ</p></td>
+				<td>段落。テキスト入れたいなら適当にコレ。alignで文字寄せができる。</td>
+				<td>align = "方向"</td>
+			</tr>
+			<tr>
+				<td>&lt;h1&gt;&lt;/h1&gt;</td>
+				<td><h1 id="font_null">h1タグ</h1></td>
+				<td>見出し文字。見出し用のテキストや適当にデカくしたい時にコレ。1のところを2~5に変更することで大きさなどを変更できる。</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>&lt;hr&gt;&lt;/hr&gt;</td>
+				<td><hr>hrタグ</hr></td>
+				<td>横罫線を引く。プロパティで色々調整はできるが別にCSSで事足りると思う。idやclassをごっちゃにしたくない時に</td>
+				<td><ul id="font_null">
+					<li>width = "線の長さ"</li>
+					<li>size = "線の太さ"</li>
+					<li>align = "方向"</li>
+					<li>noshade 平面的に表示</li>
+				</ul></td>
+			</tr>
+			<tr>
+				<td>&lt;br&gt;</td>
+				<td>改<br>行</td>
+				<td>改行！<br>以上！</td>
+				<td>clear = "画像に対しての回り込み解除方向"</td>
+			</tr>
+			<tr>
+				<td>&lt;div&gt;&lt;/div&gt;</td>
+				<td><div>divタグ</div><div style="background-color: black; color: white;">divタグ2</div></td>
+				<td>分割用。エリアごとに分けたりidなどを指定してまとめて対象にしたい時とかに使う。コンテンツを分割するのにも使える。</td>
+				<td>align = "方向"</td>
+			</tr>
+			<tr>
+				<td>&lt;pre&gt;&lt;/pre&gt;</td>
+				<td><pre id="font_null">preタグ
+(br未使用で改行)</pre></td>
+				<td>整形済みテキスト。改行やタブをそのまま表示するのでbrいちいち書くのめんどくさいな...ってなった時に使う。</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>&lt;address&gt;&lt;/address&gt;</td>
+				<td><address>addressタグ</address></td>
+				<td>アドレス情報。イタリック体で表示されるらしいがよくわからない。とりあえずアドレスはこれで囲めばOK</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>&lt;blockquote&gt;&lt;/blockquote&gt;</td>
+				<td><blockquote>blockquoteタグ</blockquote></td>
+				<td>ブロック引用。上下左右に空きを作るがこれもよくわからない。使い道もよくわからない。</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>&lt;a&gt;&lt;/a&gt;</td>
+				<td><a href="#" style="color:rgb(61, 61, 255); border-bottom: 1px solid;">aタグ</a></td>
+				<td>ハイパーリンク。リンクを貼る時に使う。リンクは同じサイト内でも別のサイトに飛ばすのにも使える。</td>
+				<td><ul id="font_null">
+					<li>href = "URLやページ内のidなど"</li>
+					<li>name = "設定したいアンカーの名前"</li>
+				</ul></td>
+				
+			</tr>
+		</table>
+        
+		<div id="expo_font">
+			<h2>フォント系</h2>
+			<table id="expo_table">
+				<tr>
+					<td>記述タグ</td>
+					<td>実際の表示</td>
+					<td>説明</td>
+					<td>入れられるプロパティ</td>
+				</tr>
+				<tr>
+					<td>&lt;i&gt;&lt;/i&gt;</td>
+					<td><i>iタグ</i></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>&lt;b&gt;&lt;/b&gt;</td>
+					<td><b>bタグ</b></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>&lt;u&gt;&lt;/u&gt;</td>
+					<td><u>uタグ</u></td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+			</table>
+		</div>
+
+        <pre id="code_text">こーどだしてや</pre>
+		</div>
+		<div id="expo_table">
+			<h2></h2>
+			<p>なにがあったん</p>
+			<pre id="code_text">こーどだしてや</pre>
+			</div>
+        <h2 id="Conclusion_contents">けっきょくどしたん</h2>
+        <p>いまきたさんぎょう</p>
+        </div>
+        <div class="col-2" id="sub">
+            <div>
+                <p>目次</p>
+                <ul>
+                    <a href="#kuwasiku"><li>1</li></a>
+                    <a href="#kuwasiku_2"><li>2</li></a>
+                    <a href="#Conclusion_contents"><li>結論</li></a>
+                </ul>
+            </div>
+        </div>
+	</main>
+	<!-- Main(End) -->
+
+	<!-- Footer(Start) -->
+	<footer>
+		Copyright © black(ueda ryouta)2024 All rights reserved.
+	</footer>
+	<!-- Footer(End) -->
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../sub.js"></script>
+</body>
+</html>

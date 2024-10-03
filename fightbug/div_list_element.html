@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>要素の中の要素が取得できない原因</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    <link rel="stylesheet" href="./custom_fb.css">
+</head>
+<body id="top" class="bg_fightbug">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_fightdebug">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+				<a class="navbar-brand" href="#Conclusion_contents">
+					<li>Conclusion</li>
+				</a>
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+			</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Header(End) -->
+
+	<!-- Main(Start) -->
+	<main class="row container">
+        <div class="col-2" id="sub">
+            <div>
+                <p id="sub_title">更新履歴</p>
+                <ul>
+                    <li>2024/5/14:作成</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-8" id="main">
+            <img src="../images/debug_1_site.png" alt="サムネイル" width="80%" style="margin: 30px 10% 0 10%;">
+		<h1>要素の中の要素が取得できない原因は？</h1>
+        <p>jqueryを使って要素を取得してると突然エラーを吐かれまして...
+            原因は要素の中にいろいろと詰め込んだことによって変わる要素の取得方法が原因でありました。
+            備忘録として書いときます。
+        </p>
+        <h2 id="kuwasiku">まずは原因の確認から</h2>
+        <p>jqueryでdiv、あるいはpやmainにidやclassをつけて指定の場所をクリックされたときにクリックされた要素を取得したいとき、
+            <br>HTML
+        </p>
+        <pre id="code_text">
+            
+            &lt;ul class="div_click"&gt;
+                &lt;li class="A"&gt;click&lt;/li&gt;
+                &lt;li class="B"&gt;click&lt;/li&gt;
+                &lt;li class="C"&gt;click&lt;/li&gt;
+            &lt;/ul&gt;
+        </pre>
+        <p>JavaScript</p>
+        <pre>
+
+            $(".div_click").click((e)=>{
+                $(e.target).text($(e.target).attr("class"))
+                //クリックした要素のテキストをクラス名に変える。
+            })
+        </pre>
+        <p>こんな感じのコードで取得すると思うんですよ、自分もそうしてたんですよ。
+            ただこのコードを使って次のHTMLの構成の要素を取得しようとするじゃないですか。
+        </p>
+        <pre id="code_text">
+            
+            &lt;div class="div_click"&gt;
+                &lt;div class="A"&gt;&lt;a&gt;click&lt;/a&gt;&lt;/div&gt;
+                &lt;div class="B"&gt;&lt;a&gt;click&lt;/a>&lt;/div&gt;
+                &lt;div class="C"&gt;&lt;a&gt;click&lt;/a&gt;&lt;/div&gt;
+            &lt;/ul&gt;
+        </pre>
+        <p>
+            <b>クリックできない、バグった、なんでさ</b><br>
+            原因は中にあるaタグが原因ですがほかにもpやlabelとかでも起こります。
+            自分はcssでこういう構成で全体的に設定していたのでここだけ構成を変えるのも面倒になってました。
+            じゃあ結局取得できないの？っていうわけではなくちゃんと取得方法がありました。
+        </p>
+        <h2 id="kuwasiku_2">要素の中にある要素の取得方法</h2>
+        <pre>
+
+            $(".div_click div").on('click', function(){//取得したい要素のタグを忘れないように
+                $(this).text($(this).attr("class"));
+                //クリックした要素のテキストをクラス名に変える。
+            })
+        </pre>
+        <h2 id="Conclusion_contents">結論</h2>
+        <p>
+            注意点として複数のタグが混在してるとその分要素の指定を増やさないと要素が取得できないです。
+            自分のような構成の要素を取得したいときはon,clickを使って要素の取得をしましょう。
+            ん？aタグを設定したいだけならdiv要素の上に置け？そもそもこんな構成にするなって？
+            <br><br>御高覧ありがとうございました〜
+        </p>
+        </div>
+        <div class="col-2" id="sub">
+            <div>
+                <p id="sub_title">目次</p>
+                <ul>
+                    <a href="#kuwasiku"><li>まずは原因の確認から</li></a>
+                    <a href="#kuwasiku_2"><li>要素の中にある要素の取得方法</li></a>
+                    <a href="#Conclusion_contents"><li>結論</li></a>
+                </ul>
+            </div>
+        </div>
+	</main>
+	<!-- Main(End) -->
+
+	<!-- Footer(Start) -->
+	<footer>
+		Copyright © black(ueda ryouta)2024 All rights reserved.
+	</footer>
+	<!-- Footer(End) -->
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../sub.js"></script>
+</body>
+</html>

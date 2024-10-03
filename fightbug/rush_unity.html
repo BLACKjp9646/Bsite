@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>Unityで突進を実装したい</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    <link rel="stylesheet" href="./custom_fb.css">
+</head>
+<body id="top">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_fightdebug">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+				<a class="navbar-brand" href="#Conclusion_contents">
+					<li>Conclusion</li>
+				</a>
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+			</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Header(End) -->
+
+	<!-- Main(Start) -->
+	<main class="row container">
+        <div class="col-2" id="sub">
+            <div>
+                <p>更新履歴</p>
+                <ul>
+                    <li>2024/5/24:作成</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-8" id="main">
+            <img src="../images/debug_2_site.png" alt="サムネイル" width="80%" style="margin: 30px 10% 0 10%;">
+		<h1>Unityで突進を実装する</h1>
+        <p>突進攻撃を持つ敵キャラを配置したくなったので調べながら四苦八苦したのを備忘録として置かせていただきます。</p>
+        <h2 id="kuwasiku">突進プログラムを作る</h2>
+        <p>手始めに突進してくる敵キャラ、プレイヤーキャラ、足場の三つを配置</p>
+        <figure class="figure"><img src="../images/rush/rush_site_1.png" width="70%"><figcaption class="figcaption">新しいプロジェクトを作って</figcaption></figure>
+        <figure class="figure"><img src="../images/rush/rush_site_2.png" width="70%"><figcaption class="figcaption">必要なものを置いてついでに色付け</figcaption></figure>
+        <p>敵キャラとプレイヤーキャラにColiderとRigitbodyの設定をわすれないようにしつつ早速プログラムへ</p>
+        <pre id="code_text">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class rush : MonoBehaviour
+{
+    public float targetPosx, targetPosz;
+    Rigidbody rb;
+    public Vector3 force = new Vector3(0.0f, 0.0f, 15.0f);// 力を設定
+    private void Start()
+    {
+        rb = this.GetComponent&lt;Rigidbody&gt;();// rigidbodyを取得   
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))//適当な条件
+        {
+            rb.AddForce(force, ForceMode.Impulse);// 力を加える   
+            //目的地を決める
+            targetPosz = this.gameObject.transform.position.z + 20;
+            targetPosx = this.gameObject.transform.position.x;
+        }
+        if(targetPosx + 0.5f &gt;= this.gameObject.transform.position.x&& targetPosx - 0.5f &lt;= this.gameObject.transform.position.x)
+        {
+            if (targetPosz + 0.5f &gt;= this.gameObject.transform.position.z && targetPosz - 0.5f &lt;= this.gameObject.transform.position.z)
+            {
+                 // 目的地付近に到達したら速度を０にする
+                rb.velocity = Vector3.zero;   
+            }
+        }
+    }
+}
+
+		</pre>
+        <p>プログラムができたら突進させたい対象にプログラムを適応して</p>
+        <figure class="figure"><img src="../images/rush/rush_site_3.png" width="70%"><figcaption class="figcaption">敵の向いてる方向をわかりやすくするために頭をつけて準備OK!</figcaption></figure>
+        <figure class="figure"><img src="../images/rush/rush_site_4.png" width="70%"><figcaption class="figcaption">どこ行くねぇん！</figcaption></figure>
+        <h2 id="kuwasiku_2">rigidbodyを使って正面に飛ばす</h2>
+        <p>明後日の方向に飛んだのは正面方向に飛ばしていなかったからなので正面に飛ばすようにプログラムを改良していきます。</p>
+        <pre id="code_text">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class rush : MonoBehaviour
+{
+    public float targetPosx, targetPosz;
+    Rigidbody rb;
+    private void Start()
+    {
+        rb = this.GetComponent&lt;Rigidbody&gt;();// rigidbodyを取得   
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))//適当な条件
+        {
+            rb.AddForce(transform.forward * 15.0f, ForceMode.Impulse);// 正面に力を加える
+            //目的地を決める
+            targetPosz = this.gameObject.transform.position.z + 20;
+            targetPosx = this.gameObject.transform.position.x;
+        }
+        if(targetPosx + 0.5f &gt;= this.gameObject.transform.position.x&& targetPosx - 0.5f &lt;= this.gameObject.transform.position.x)
+        {
+            if (targetPosz + 0.5f &gt;= this.gameObject.transform.position.z && targetPosz - 0.5f &lt;= this.gameObject.transform.position.z)
+            {
+                 // 目的地付近に到達したら速度を０にする
+                rb.velocity = Vector3.zero;   
+            }
+        }
+    }
+}
+        </pre>
+        <p>早速動作確認してみると</p>
+        <figure class="figure"><img src="../images/rush/rush_site_5.png" width="70%"><figcaption class="figcaption">まぁ成功してる</figcaption></figure>
+        <figure class="figure"><img src="../images/rush/rush_site_6.png" width="70%"><figcaption class="figcaption">理想はこっち</figcaption></figure>
+        <p>思ってた突進の挙動がTHUJIGIRIスタイルだったので今のままだとプレイヤーに当たって停止するんですよね、しかし普通に当たり判定を消すと地面にめり込むし...というわけで調べるとこんな機能が</p>
+        <h2 id="kuwasiku_3">レイヤーを使って当たり判定をそれぞれに設定する</h2>
+        <p>調べてみるとありました便利機能、レイヤーによる当たり判定設定！設定方法も簡単で<br>日本語翻訳だと編集→プロジェクト設定→物理、<br>英語のままだとSetting→Project Setting→Physics<br>の中で判定をそれぞれ設定できました。</p>
+        <figure class="figure"><img src="../images/rush/rush_site_7.png" width="70%"><figcaption class="figcaption">レイヤーを追加から適当な名前を追加してそれぞれに設定</figcaption></figure>
+        <figure class="figure"><img src="../images/rush/rush_site_8.png" width="70%"><figcaption class="figcaption">対応するレイヤーの当たり判定を削除</figcaption></figure>
+        <p>とりあえずこれでヨシ！動作を確認すると</p>
+        <figure class="figure"><img src="../images/rush/rush_site_9.png" width="70%"><figcaption class="figcaption">突進の挙動をしながら貫通している</figcaption></figure>
+        <p>わかりにくいけどプレイヤーの判定にぶつからずそのまま通り抜けて停止してます、あとは個人的に入れたい要素として平常時は敵にぶつかり判定が欲しいのでレイヤーをDefaultに、
+            プログラムの中の突進開始のところに
+        </p>
+        <pre id="code_text">this.gameObject.layer = 6;//レイヤーは番号で指定する</pre>
+        <p>突進終了処理のところに</p>
+        <pre id="code_text">this.gameObject.layer = 0;//元に戻す</pre>
+        <p>を置いて完成！これで理想的なTHUJIGIRI突進スタイルができました！</p>
+        <h2 id="Conclusion_contents">結論</h2>
+        <p>突進を作る工程としては<br>
+            突進させたいオブジェクトに任意のレイヤー、当たり判定、rigidbodyを設定→判定を消したいレイヤーの設定→プログラムを設定
+            でOKです。思ったより特定のオブジェクト限定で判定を消すのが面倒くさかったですが実装できてよかったです。
+        </p>
+        <h2 id="yodan">余談</h2>
+        <p>
+            Unity超初心者だったとき、rigidbodyに移動用のプログラムがあることを知らなかったんでtransform.positionに直接数値を送って動かしてたんですよ、
+            ただ意味はよくわからないけどrigidbodyは入れてたし特定のレイヤー同士の判定変更もしてなかったのでどうなったかっていうと突進してくる敵キャラが
+            プレイヤーの判定を斜めに駆け上がって空を駆ける謎挙動を起こしてたっていう過去があります。なんだったんだあの判定
+        </p>
+        </div>
+        <div class="col-2" id="sub">
+            <div>
+                <p>目次</p>
+                <ul>
+                    <a href="#kuwasiku"><li>突進プログラムを作る</li></a>
+                    <a href="#kuwasiku_2"><li>rigidbodyを使って正面に飛ばす</li></a>
+                    <a href="#kuwasiku_3"><li>レイヤーを使って当たり判定をそれぞれに設定する</li></a>
+                    <a href="#Conclusion_contents"><li>結論</li></a>
+                    <a href="#yodan"><li>余談</li></a>
+                </ul>
+            </div>
+        </div>
+	</main>
+	<!-- Main(End) -->
+
+	<!-- Footer(Start) -->
+	<footer>
+		Copyright © black(ueda ryouta)2024 All rights reserved.
+	</footer>
+	<!-- Footer(End) -->
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../sub.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>BMI計算機</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+</head>
+<body id="top" class="bg_math">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_math">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+			</ul>
+			</div>
+		</nav>
+	</header>
+    <main class="row container">
+        <div class="col-2" id="sub">
+            <p id="sub_title">更新履歴</p>
+            <ul>
+                <li>2023/11/24:BMI計算実装</li>
+                <li>2024/5/15:デザイン一新</li>
+            </ul>
+        </div>
+        <div class="col-10" id="main" style="text-align: center;">
+            <h2 id="sub_title">BMI計算</h2>
+    <p id="bmi">
+    <label>体重<input type="number" id="taijuu">Kg</label><br>
+    <label>身長<input type="number" id="sintyou">cm</label><br>
+    </p>
+    <button id="btn">Click Here!</button>
+    <br>
+    <p>
+        <span id="result">りざると</span>
+    </p>
+        </div>
+        <div class="col-2" id="sub">
+            
+        </div>
+    </main>
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

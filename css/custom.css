@@ -1,0 +1,254 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css?family=Kosugi');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+@keyframes fadeUp{
+    0%{opacity:0;}
+  100%{opacity:1;}
+}
+
+/*ここまで*/
+html{
+	width: 100%;;
+}
+.background_img{
+	background: url(../images/backimage_1.png) no-repeat center;
+    background-attachment:fixed;
+    margin: 0;
+    padding:0;
+    width: 100%;
+}
+.addimg{
+    animation: fadeUp 1s forwards;
+    background: url(../images/backimage_2.png) no-repeat  center;
+    background-attachment:fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.addimg::before{
+    content: "";
+    transition: 0.5;
+    position: fixed;
+    top: 0;  bottom: 0;
+    left: 0;  right: 0;
+	background: rgba(0, 0, 0, 0.4);
+    /*opacity:0.4;*/
+}
+.navbar-brand img{
+	width: 28px; height: auto;
+	margin: 0px 5px; padding: 0px;
+	border-radius: 14px;
+}
+.gonav{
+	display: flex;
+	list-style: none;
+}
+.gonav a li{
+color: #fff;
+padding:0 30px;
+text-decoration: none;
+}
+.gonav a{
+position: relative;
+}
+.gonav a:hover{
+color:aqua;
+}
+.gonav a::after {
+content: '';
+/*絶対配置で線の位置を決める*/
+position: absolute;
+bottom: 0;
+left: 10%;
+/*線の形状*/
+width: 80%;
+height: 2px;
+background:white;
+/*アニメーションの指定*/
+transition: all .3s;
+transform: scale(0, 1);/*X方向0、Y方向1*/
+transform-origin: center top;/*上部中央基点*/
+}
+
+.gonav a:hover::after {
+transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+#title_text{
+	font-size: 96px;
+	text-align: center;
+	padding-top: 300px;
+	color: rgba(137, 207, 235);
+	font-family: 'Noto Serif JP';
+}
+#about_contents{
+	margin: 300px 10% 150px;
+	color: #fff;
+	text-align: center;
+	font-size: 30px;
+}
+#about_text{
+	text-align: left;
+}
+#about_text ul li{
+	padding-top: 20px;
+}
+#production_contents{
+padding: 0 0 200px;
+margin:300px 5% 0 5%;
+background: none;
+position: relative;
+}
+.nav_tab_contents_1{
+	width: 100%;	
+}
+.nav_tab_1,.nav_tab_2,.Filter_tab,.SortList{
+text-align: center;
+color: white;
+padding: 20px 0;
+background-color: rgba(128, 128, 128, 0.8);
+
+}
+.nav_tab_1:hover,.nav_tab_2:hover{
+	background-color: rgba(128, 128, 128, 0.5);
+	}
+.nav_tab_active{
+	color: red;
+	background-color: rgba(137, 207, 235, 0.7);
+}
+.nav_tab_active:hover{
+	color: red;
+	background-color: rgba(137, 207, 235, 0.5);
+}
+a{
+	color:unset;
+	text-decoration: none;
+}
+a:link,a:visited,a:active{
+    color: unset;
+    text-decoration: none;
+  }
+  .nav_tab_contents_2{
+margin: 0;	
+  }
+#nav_contents{
+	margin: 0;
+	color: black;
+	background-color: rgba(137,207,235, 70%);
+}
+#nav_contents #col{
+	padding-bottom: 20px;
+	
+	
+}
+#nav_contents div a time{
+	font-size: 12px;
+	text-align:left;
+}
+#nav_contents div a{
+	text-align: center;
+}
+#nav_contents div a span{
+	text-align: center;
+	float: right;
+}
+#nav_contents div a p{
+	font-size: 20px;
+}
+#nav_contents #col img{
+width: 100%;
+height: 200px;
+}
+#other_list{
+    width: 100%;
+    background-color: gray;
+}
+#math_list{
+    width: 100%;
+	background-color: aqua;
+}
+#game_list{
+    width: 100%;
+	background-color: red;
+}
+#model_list{
+    width: 100%;
+	background-color: orange;
+}
+#fightdebug_list{
+	width: 100%;
+	background-color: greenyellow;
+}
+#image_list{
+	width: 100%;
+	background-color: rgb(255, 125, 255);
+}
+#nav_linkcont:hover{
+	content: "";
+    transition: 0.5;
+    top: 0;  bottom: 0;
+    left: 0;  right: 0;
+	color: black;
+	text-decoration: none;
+    opacity:0.4;
+}
+footer{
+	text-align: center;
+	color: #fff;
+
+}
+	.dropdown_List{
+		display: block;
+		position: relative;
+		float: left;
+		width: 100%;
+	}
+	#dropdown_Filter{
+		list-style: none;
+		position: absolute;
+		width: 100%;
+		z-index: 9999;
+		top: 100%;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	#dropdown_Filter li label{
+		width: 100%;
+		padding: 16px 0;
+		background: rgba(137, 207, 235, 1);
+
+		
+	}
+	.dropdown_List  ul li{
+		overflow: hidden;
+		height: 0;
+		transition: .2s;
+	  }
+	  .dropdown_List:hover{
+		background: rgba(137, 207, 235, 0.7);
+	  }
+	  .dropdown_List:hover  ul li {
+		overflow: visible;
+		height: 50px;
+	  }
+	  #dropdown_Filter label:hover{
+		background: rgba(137, 207, 235, 0.7);		
+	  }
+	  #nav-fill{
+		margin: 0;
+	  }
+	  .head_active{
+		width: 100%;
+		position: fixed;
+		z-index: 9999;
+  transition: transform 0.1s 0.1s; /* アニメーションの設定 */
+}
+	.head_disactive{
+	transform: translateY(-80px); /* ヘッダの高さだけ上に移動 */
+	}

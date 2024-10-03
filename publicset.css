@@ -1,0 +1,142 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css?family=Kosugi');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+@keyframes fadeUp{
+    0%{opacity:0;}
+  100%{opacity:1;}
+}
+
+/*背景色設定*/
+.container{
+    background: none;
+}
+.bg_math{
+    width: 100%;
+    background-color: rgb(200, 255, 255);
+}
+.bg_model{
+    width: 100%;
+    background-color: rgb(255, 220, 155);
+}
+.bg_fightbug{
+    background-color: rgb(240, 255, 198);
+}
+.bg_image{
+    background-color: rgb(255, 210, 255);
+}
+.bg_game{
+    background-color: rgb(255, 200, 200);
+}
+/*背景色設定↑ここまで*/
+/*navの背景色設定*/
+.nav_other{
+    background-color: gray;
+}
+.nav_math{
+    background-color: aqua;
+}
+.nav_game{
+    background-color: red;
+}
+.nav_model{
+    background-color: orange;
+}
+.nav_fightdebug{
+background-color: greenyellow;
+}
+.nav_image{
+    background-color: rgb(255, 125, 255);
+}
+
+/*navの背景色設定↑ここまで*/
+
+html{
+    width: 100%;
+    scroll-behavior: smooth;
+    color: black;
+}
+
+.navbar-brand{
+	color: black;
+}
+.navbar-brand img{
+	width: 28px; height: auto;
+	margin: 0px 5px; padding: 0px;
+	border-radius: 14px;
+}
+.gonav{
+	display: flex;
+	list-style: none;
+}
+.gonav a li{
+color: black;
+padding:0 30px;
+text-decoration: none;
+}
+.gonav a{
+position: relative;
+}
+.gonav a:hover{
+color:aqua;
+}
+.gonav a::after {
+content: '';
+/*絶対配置で線の位置を決める*/
+position: absolute;
+bottom: 0;
+left: 10%;
+/*線の形状*/
+width: 80%;
+height: 2px;
+background:black;
+/*アニメーションの指定*/
+transition: all .3s;
+transform: scale(0, 1);/*X方向0、Y方向1*/
+transform-origin: center top;/*上部中央基点*/
+}
+
+.gonav a:hover::after {
+transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+a{
+	color:unset;
+	text-decoration: none;
+}
+a:link,a:visited,a:active{
+    color: unset;
+    text-decoration: none;
+}
+a:hover{
+    opacity: 0.8;
+}
+main{
+    padding-top: 80px;
+}
+.container{
+    margin: 0 5%;
+}
+#main,#sub{
+    background-color: rgb(240, 240, 240);
+}
+footer{
+	text-align: center;
+	color: black;
+
+}
+	  .head_active{
+		width: 100%;
+		position: fixed;
+		z-index: 9999;
+  transition: transform 0.1s 0.1s; /* アニメーションの設定 */
+}
+	.head_disactive{
+	transform: translateY(-80px); /* ヘッダの高さだけ上に移動 */
+	}
+    #center_text{
+        text-align: center;
+    }
+    #sub_title{
+        padding: 30px 0;
+        border-bottom: solid 1px;
+    }

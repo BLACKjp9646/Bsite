@@ -1,0 +1,40 @@
+{
+    "SiteData":[
+        {
+        "recommend":[
+        {"Title":"消費税計算+二進数変換","Category":"math","link":"./keisanki/keisan.html","image":"./images/nisinsuu_site.png","Date":"2023/11/7"}
+        ,{"Title":"天気","Category":"other","link":"./weather/index.html","image":"./images/weather_site.png","Date":"2023/12/12"}
+        ,{"Title":"敵3号君","Category":"model","link":"./modelSite/model_4.html","image":"./images/model_4.png","Date":"2023/10/20"}
+        ,{"Title":"2024アイコン","Category":"image","link":"./imageSite/2024Icon.html","image":"./images/2024Icon_site.png","Date":"2024/1/12"}
+        ,{"Title":"要素の中の要素の取得方法","Category":"fightdebug","link":"./fightbug/div_list_element.html","image":"./images/debug_1_site.png","Date":"2024/5/14"}
+        ,{"Title":"比率計算機","Category":"math","link":"./ratio_math/ratio_math.html","image":"./images/ratio_math.png","Date":"2024/06/07"}
+        ,{"Title":"乱数生成機","Category":"other","link":"./randomGene/randomGene.html","image":"./images/random_Gene.png","Date":"2024/06/11"}
+        ,{"Title":"ガチャ確率計算機","Category":"math","link":"./Gacha/Gacha.html","image":"./images/Gacha.png","Date":"2024/06/18"}
+       ]
+    ,"all":[
+        {"Title":"teki1号君","Category":"model","link":"./modelSite/model_5.html","image":"./images/model_5.png","Date":"2021/10/9"}
+        ,{"Title":"boss1号君","Category":"model","link":"./modelSite/model_2.html","image":"./images/model_2.png","Date":"2021/12/24"}
+        ,{"Title":"2022アイコン","Category":"image","link":"./imageSite/2022Icon.html","image":"./images/2022Icon_site.png","Date":"2022/1/10"}
+        ,{"Title":"敵1号君","Category":"model","link":"./modelSite/model_1.html","image":"./images/model_1.png","Date":"2023/8/12"}
+        ,{"Title":"敵2号君","Category":"model","link":"./modelSite/model_3.html","image":"./images/model_3.png","Date":"2023/8/20"}
+        ,{"Title":"敵3号君","Category":"model","link":"./modelSite/model_4.html","image":"./images/model_4.png","Date":"2023/10/20"}
+        ,{"Title":"BMI計算機","Category":"math","link":"./BMIkeisan/BMIkeisan.html","image":"./images/bmi_site.png","Date":"2023/11/24"}
+        ,{"Title":"消費税計算+二進数変換","Category":"math","link":"./keisanki/keisan.html","image":"./images/nisinsuu_site.png","Date":"2023/11/7"}
+        ,{"Title":"おみくじ","Category":"other","link":"./omikuji/index.html","image":"./images/omikuji_site.png","Date":"2023/11/7"}
+        ,{"Title":"ガソリン計算","Category":"math","link":"./gasorin/gasorin.html","image":"./images/gasorin_site.png","Date":"2023/11/7"}
+        ,{"Title":"ランダム地図旅行","Category":"other","link":"./maprandGo/index.html","image":"./images/landmap_site.png","Date":"2023/12/08"}
+        ,{"Title":"天気","Category":"other","link":"./weather/index.html","image":"./images/weather_site.png","Date":"2023/12/12"}
+        ,{"Title":"10万の卵","Category":"game","link":"./tamagoClick/index.html","image":"./images/tamago_site.png","Date":"2023/12/14"}
+        ,{"Title":"スライドパズル","Category":"game","link":"./cubegame/index.html","image":"./images/slidepazul.png","Date":"2023/12/19"}
+        ,{"Title":"2024アイコン","Category":"image","link":"./imageSite/2024Icon.html","image":"./images/2024Icon_site.png","Date":"2024/1/12"}
+        ,{"Title":"要素の中の要素の取得方法","Category":"fightdebug","link":"./fightbug/div_list_element.html","image":"./images/debug_1_site.png","Date":"2024/5/14"}
+        ,{"Title":"敵キャラを突進させる","Category":"fightdebug","link":"./fightbug/rush_unity.html","image":"./images/debug_2_site.png","Date":"2024/5/24"}
+        ,{"Title":"比率計算機","Category":"math","link":"./ratio_math/ratio_math.html","image":"./images/ratio_math.png","Date":"2024/06/07"}
+        ,{"Title":"乱数生成機","Category":"other","link":"./randomGene/randomGene.html","image":"./images/random_Gene.png","Date":"2024/06/11"}
+        ,{"Title":"ガチャ確率計算機","Category":"math","link":"./Gacha/Gacha.html","image":"./images/Gacha.png","Date":"2024/06/18"}
+        ,{"Title":"図形計算機","Category":"math","link":"./shape_math/shape_math.html","image":"./images/Gacha.png","Date":"2024/10/01"}
+        ,{"Title":"必要素材計算機","Category":"math","link":"./RequiredMat/requiredMat.html","image":"./images/Gacha.png","Date":"2024/06/18"}
+       ]
+}
+]
+}
