@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>足し算+二進数変換</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    </head>
+    <body class="bg_math">
+        
+        <header class="head_active">
+            <nav class="navbar navbar-expand-md nav_math">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/SiteIcon.png">Portfolio
+                    </a>
+                    <ul class="gonav">
+                        <a class="navbar-brand" href="#top">
+                            <li>Top</li>
+                        </a>
+                </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row container">
+            <div class="col-3" id="sub">
+            <h2 id="sub_title">変更履歴</h2>
+            <ul>
+                <li>2023/11/07:計算機実装</li>
+                <li>2024/5/15:デザイン一新</li>
+            </ul>
+        </div>
+        <div class="col-8" id="main">
+            <div id="keisan">
+        
+        <h1 id="sub_title">消費税計算</h1>
+        <input type="number" id="kingaku_number">
+        <button id="btn">Click Here!</button>
+        <br>
+        <form>
+        <label><input type="radio" name="zeiritu" id="zeiritu" value="1.1">税率10%</label>
+        <label><input type="radio" name="zeiritu" id="zeiritu" value="1.08">税率8%</label>
+        <label><input type="radio" name="zeiritu" id="zeiritu" value="9646">税率</label><input type="number" id="zeiritu_number" style="width: 90px;">%
+        </form>
+        <p>
+            <span id="result">りざると</span>
+        </p>
+        <h1 id="sub_title">二進数変換</h1>
+        <input type="number" id="ni_number">
+        <button id="ni_btn">Click Here!</button>
+        <p>
+            <span id="ni_result">NISINSUU</span><br>
+            <span id="ni_result_2"></span>
+        </p>
+    </div>
+</div>
+</main>
+        <!-- JavaScriptをロードする -->
+        <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script src="main.js"></script>
+        <script src="../sub.js"></script>
+    </body>
+</html>

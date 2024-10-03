@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/SiteIcon.png">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>敵2号君</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../publicset.css">
+      <link rel="stylesheet" href="./custom_fb.css">
+  </head>
+<body class="bg_model">
+  <header class="head_active">
+		<nav class="navbar navbar-expand-md nav_model">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+				<a class="navbar-brand" href="#Commitment_contents">
+					<li>Commitment</li>
+				</a>
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+			</ul>
+			</div>
+		</nav>
+	</header>
+    <model-viewer
+  src="./一面敵[3].glb"
+  camera-controls
+  shadow-intensity="1.5"
+  shadow-softness="0.5"
+></model-viewer>
+<style>
+    model-viewer {
+      padding: 100px 0 0;
+      margin: 0 auto;
+      width: 80%;
+      height: 540px;
+      background-color: white;
+    }
+    </style>
+    <main class="row container" id="Commitment_contents">
+      <div class="col-3" id="sub">
+          <div>
+              <p id="sub_title">更新履歴</p>
+              <ul>
+                  <li>2023/8/20:作成</li>
+                  <li>2024/5/15:デザイン一新</li>
+              </ul>
+          </div>
+      </div>
+      <div class="col-8" id="main">
+      <h2 id="center_text">ちょこっとこだわり解説</h2>
+      <p>モチーフにしたのはMu○Lu○の戦車級で機体上面にある不恰好な矢印は不自然なので目立つかなー突進してきそうだなーっと思ってもらうためにつけました。足回りはキャタピラのはずですが出来がよろしくないのでコイツもリメイクしたいですね</p>
+    </div>
+  </main>
+  <!-- Footer(Start) -->
+<footer>
+  Copyright © black(ueda ryouta)2024 All rights reserved.
+</footer>
+<!-- Footer(End) -->
+
+<!-- JavaScript -->
+<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+<script src="../libs/bootstrap/bootstrap.min.js"></script>
+  <script src="../sub.js"></script>
+</body>
+</html>
