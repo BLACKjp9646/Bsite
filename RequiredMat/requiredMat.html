@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+    <script  src = "treant-js-master/vendor/raphael.js" ></script>
+    <script  src = "treant-js-master/Treant.js" ></script>
+    
 	<link rel="shortcut icon" href="../images/SiteIcon.png">
 	<title>必要素材数計算</title>
 	<!-- CSS -->
@@ -10,6 +14,7 @@
 	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="../publicset.css">
+    <link rel="stylesheet" href="treant-js-master/Treant.css">
     <style>
         #canvas_container{
             width: 600px;
@@ -31,10 +36,41 @@
         #MatData_input_table table tr{
 			height: 40px;
 		}
+        
 		#MatData_input_table table tr td input{
 			width: 150px;
 		}
 
+        #math_mat_result{
+            margin-bottom: 30px;
+			padding-bottom: 10px;
+        }
+        #math_mat_result table{
+            width: 90%;
+			margin: 0 5% 10px 5%;
+			text-align: left;
+            background-color: white;
+        }
+        #math_mat_result table tr{
+			height: 40px;
+		}
+        #math_mat_result table tr:first-child{
+			background-color: #00c8c8;
+            color: white;
+		}
+        #math_mat_result table tr:nth-child(even){
+			background-color: #EEEEEE;
+		}
+		#math_mat_result table tr td{
+            padding: 0 0 0 5px;
+            border: solid black 1px;
+		}
+        #math_mat_result table tr td:first-child{
+            width: 10%;
+		}
+        #math_mat_result table tr td:nth-child(2){
+            width: 60%;
+		}
         .req_dialog{
             width: 50%;
             border: none;
@@ -49,7 +85,35 @@
         .req_dialog div{
             padding: 10px;
         }
-		
+        #req_mat_math_button{
+            width: 70%;
+            margin: 0 15%;
+        }
+		.errortxt{
+            color: red;
+        }
+        #tree-simple{
+            
+            background-color: rgb(200, 255, 255);
+        }
+        .node{
+            text-align: left;
+            width: 100px;
+            border: 1px solid;
+            background-color: white;
+        }
+        .tree_node{
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .node-name{
+            border-bottom: 1px solid;
+            background-color: rgb(200, 200, 200);
+        }
+        .node-goal{
+            line-height: 0px;
+        }
     </style>
     </head>
     <body class="bg_math">
@@ -63,6 +127,12 @@
                         <a class="navbar-brand" href="#top">
                             <li>Top</li>
                         </a>
+                        <a class="navbar-brand" href="#recipi_state">
+                            <li>State</li>
+                        </a>
+                        <a class="navbar-brand" href="#math_mat_result">
+                            <li>Result</li>
+                        </a>
                         <a class="navbar-brand" href="#manual">
                             <li>Manual</li>
                         </a>
@@ -74,7 +144,7 @@
             <div class="col-3" id="sub">
             <h2 id="sub_title">変更履歴</h2>
             <ul>
-                <li>2024/07/23:図形計算機実装</li>
+                <li>2024/10/22:必要素材計算機実装</li>
             </ul>
         </div>
         <div class="col-8" id="main">
@@ -92,15 +162,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input class="btn btn-primary" id="add_mat_button" type="button" value="素材追加"></td>
-                            <td><input class="btn btn-primary" id="del_mat_button" type="button" value="素材情報削除"></td>
+                            <td><input class="btn btn-primary" id="add_mat_dialog_button" type="button" value="素材追加"></td>
+                            <td><input class="btn btn-primary" id="del_mat_dialog_button" type="button" value="素材情報削除"></td>
                         </tr>
                         <tr>
-                            <td><input class="btn btn-primary" id="add_recipi_button" type="button" value="レシピ追加"></td>
-                            <td><input class="btn btn-primary" id="del_recipi_button" type="button" value="レシピ情報削除"></td>
+                            <td><input class="btn btn-primary" id="add_recipi_dialog_button" type="button" value="レシピ追加"></td>
+                            <td><input class="btn btn-primary" id="del_recipi_dialog_button" type="button" value="レシピ情報削除"></td>
                         </tr>
                     </table>
                 </div>
+                <a href="#math_mat_result"><input class="btn btn-primary" id="req_mat_math_button" type="button" value="計算する"></a>
+
+                <!--素材追加ダイアログ↓ここから-->
                 <dialog class="req_dialog" id="add_Mat_Dialog">
                     <h2>素材の追加</h2>
                     <div id="MatData_input_table">
@@ -112,16 +185,94 @@
                             </tr>
                             <tr>
                                 <td>識別用の色</td>
-                                <td>せれくとぉ
+                                <td>
+                                    <select id="input_mat_color">
+                                        <option value="ffffff">白</option>
+                                        <option value="000000">黒</option>
+                                        <option value="ff0000">赤</option>
+                                        <option value="0000ff">青</option>
+                                        <option value="00ff00">緑</option>
+                                        <option value="ffff00">黄</option>
+                                        <option value="800080">紫</option>
+                                        <option value="ffa500">橙</option>
+                                        <option value="a52a2a">茶</option>
+                                        <option value="ffc0cb">桃</option>
+                                        <option value="custom_color">カスタム</option>
+                                    </select>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>カスタム色</td>
+                                <td>#<input id="input_custom_color" type="text" placeholder="カラーコード" value="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>※入力が不正なら白になります</td>
+                            </tr>
                         </table>
+                        <div style="padding: 0 10%;" class="errortxt" id="add_mat_errortxt"></div>
                         <div style="float: right;">
-                        <input class="btn btn-primary" id="close_recipi_button" type="button" value="閉じる">
-                        <input class="btn btn-primary" id="close_recipi_button" type="button" value="追加">
+                        <input class="btn btn-primary" id="close_button" type="button" value="閉じる">
+                        <input class="btn btn-primary" id="add_mat_button" type="button" value="追加">
                         </div>
                     </div>
                 </dialog>
+                <!--素材追加ダイアログ↑ここまで-->
+
+                <!--素材情報削除ダイアログ↓ここから-->
+                <dialog class="req_dialog" id="del_Mat_Dialog">
+                    <h2>素材情報の削除</h2>
+                    <div id="MatData_input_table">
+                        <table>
+                            <tr>
+                                <td>素材名称</td>
+                                <td><select id="select_mat_name">
+
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>※削除を押すと全てのレシピ情報がリセットされます。</td>
+                            </tr>
+                           
+                        </table>
+                        <div style="padding: 0 10%;" class="errortxt" id="del_mat_errortxt"></div>
+                        <div style="float: right;">
+                        <input class="btn btn-primary" id="close_delmat_button" type="button" value="閉じる">
+                        <input class="btn btn-primary" id="del_mat_button" type="button" value="削除">
+                        </div>
+                    </div>
+                </dialog>
+                <!--素材情報削除ダイアログ↑ここまで-->
+
+                <!--レシピ情報削除ダイアログ↓ここから-->
+                <dialog class="req_dialog" id="del_recipi_Dialog">
+                    <h2>レシピ情報の削除</h2>
+                    <div id="MatData_input_table">
+                        <table>
+                            <tr>
+                                <td>素材名称</td>
+                                <td><select id="select_recipi_name">
+
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>※削除を押すと全てのレシピ情報がリセットされます。</td>
+                            </tr>
+                           
+                        </table>
+                        <div style="padding: 0 10%;" class="errortxt" id="del_recipi_errortxt"></div>
+                        <div style="float: right;">
+                        <input class="btn btn-primary" id="close_delrecipi_button" type="button" value="閉じる">
+                        <input class="btn btn-primary" id="del_recipi_button" type="button" value="削除">
+                        </div>
+                    </div>
+                </dialog>
+                <!--レシピ情報削除ダイアログ↑ここまで-->
+
+                <!--レシピ追加ダイアログ↓ここから-->
                 <dialog class="req_dialog" id="add_recipi_Dialog">
                     <h2>レシピの追加</h2>
                     <div id="MatData_input_table">
@@ -138,7 +289,7 @@
                             <tr>
                                 <td>素材1</td>
                                 <td>
-                                    <select id="input_recipi_mat_select">
+                                    <select id="input_recipi_mat_select_1">
                                         <option>素材を選択</option>
                                     </select>
                                 </td>
@@ -147,7 +298,7 @@
                             <tr>
                                 <td>素材2</td>
                                 <td>
-                                    <select id="input_recipi_mat_select">
+                                    <select id="input_recipi_mat_select_2">
                                         <option>素材を選択</option>
                                     </select>
                                 </td>
@@ -156,28 +307,84 @@
                             <tr>
                                 <td>素材3</td>
                                 <td>
-                                    <select id="input_recipi_mat_select">
+                                    <select id="input_recipi_mat_select_3">
                                         <option>素材を選択</option>
                                     </select>
                                 </td>
                                 <td><input id="input_req_mat_num_3" type="number" placeholder="素材3必要数" value=""></td>
                             </tr>
+                            <tr>
+                                <td>素材4</td>
+                                <td>
+                                    <select id="input_recipi_mat_select_4">
+                                        <option>素材を選択</option>
+                                    </select>
+                                </td>
+                                <td><input id="input_req_mat_num_4" type="number" placeholder="素材4必要数" value=""></td>
+                            </tr>
+                            <tr>
+                                <td>素材5</td>
+                                <td>
+                                    <select id="input_recipi_mat_select_5">
+                                        <option>素材を選択</option>
+                                    </select>
+                                </td>
+                                <td><input id="input_req_mat_num_5" type="number" placeholder="素材5必要数" value=""></td>
+                                
+                            </tr>
+                            
                         </table>
                     </div>
+                    <div style="padding: 0 10%;" class="errortxt" id="add_recipi_errortxt"></div>
                     <div style="float: right;">
-                        <input class="btn btn-primary" id="close_button" type="button" value="閉じる">
-                        <input class="btn btn-primary" id="close_button" type="button" value="追加">
+                        <input class="btn btn-primary" id="close_recipi_button" type="button" value="閉じる">
+                        <input class="btn btn-primary" id="add_recipi_button" type="button" value="追加">
                     </div>
                 </dialog>
+                <!--レシピ追加ダイアログ↑ここまで-->
+                
+                <!--樹形図用↓ここから-->
+                <div id="recipi_state" style="margin:5%">
+                    <h2 id="sub_title">レシピの状態</h2>
+                    <details> 
+                        <summary>表の見方</summary>
+                          <div class="node" style="width: 150px;">
+                            <div class="node-name">
+                                素材名称:x必要数
+                            </div><br>
+                            <div class="node-goal">
+                                生成された数
+                            </div><br>
+                        </div>
+                      </details>
+    <div id="tree-simple" style="width:90%; height: 400px;"></div>
+                </div>
+                <!--樹形図用↑ここまで-->
+
+                <!--合計必要数表示表用↓ここから-->
+                <div id="math_mat_result">
+                    <h2 id="sub_title">素材合計必要数</h2>
+                    <table>
+                            <tr>
+                                <td>識別色</td>
+                                <td>素材名称</td>
+                                <td>必要数</td>
+                            </tr>
+                    </table>
+                </div>
+                <!--合計必要数表示表用↑ここまで-->
 
                     <h2 id="sub_title">使い方</h2>
                     <ul id="manual">
-                        <li>まず計算したい図形の種類を選択してください。</li>
-                        <li>図形ごとに対応した入力フォームが出るのでxやy,高さなどを入力してください。</li>
-                        <li>「図形表示」を押すと計算する図形の見本図が表示されます。</li>
-                        <li>「計算する」を押すと計算結果が出力されます。また、計算前と後の単位を変更することができます。</li>
-                        <li>詳細モードにチェックを入れると縦横を切り替えたり図形の表示に使う値に変更が入ったりします。ぜひ活用してください。</li>
-                        ※値がある程度大きくなると表示される図形がそれに合わせて縮小します。場合によっては思ったより小さくなるかもしれません。
+                        <li>まず目標にしている素材の名称と個数を入力してください。</li>
+                        <li>次に素材追加ボタンを押して必要な素材の名称を登録してください。</li>
+                        　識別色は計算後の表で表示されます。<br>
+                        <li>素材登録が終わったらレシピ追加ボタンを押してレシピを登録してください。</li>
+                        　登録したレシピで一度に出来上がる数を一度にできる数に入れるようにしてください。<br>
+                        　※素材名称と素材の必要数をしっかり設定するようにしてください。両方設定されていないとレシピに登録されません。<br>
+                        　※A←BとB←Cのレシピがあった時C←Aのようなレシピを設定しないようにしてください。計算時にループしてエラーが発生します。<br>
+                        <li>レシピ登録が終わったら計算するボタンを押してください。各種素材の必要数が表示されます。</li>
+                        ※素材の登録やレシピの登録に失敗した時はそれぞれの削除ボタンを押してください。
                     </ul>
                 </div>
             </div>
