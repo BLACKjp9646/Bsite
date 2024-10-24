@@ -3,20 +3,7 @@ var my_chart
 let Mat_data = {
 "data":[
     {"Name":"defalt","Color":"#FFFFFF","recipi_num":0,"matSum":0},
-    {"Name":"モジュラー","Color":"#FFFFFF","recipi_num":0,"matSum":0},
-    {"Name":"鋼管","Color":"#a52a2a","recipi_num":0,"matSum":0},
-    {"Name":"被覆コンクリ","Color":"#ffa500","recipi_num":0,"matSum":0},
-    {"Name":"ネジ","Color":"#0000ff","recipi_num":0,"matSum":0},
-    {"Name":"強化鉄板","Color":"#FFFFFF","recipi_num":0,"matSum":0},
-    {"Name":"鉄ロッド","Color":"#000000","recipi_num":0,"matSum":0},
-    {"Name":"鉄板","Color":"#FFFFFF","recipi_num":0,"matSum":0},
-    {"Name":"鉄インゴット","Color":"#FFFFFF","recipi_num":0,"matSum":0},
-    {"Name":"鉄鉱石","Color":"#ffc0cb","recipi_num":0,"matSum":0},
-    {"Name":"鋼鉄","Color":"#000000","recipi_num":0,"matSum":0},
-    {"Name":"石炭","Color":"#000000","recipi_num":0,"matSum":0},
-    {"Name":"鋼梁","Color":"#000000","recipi_num":0,"matSum":0},
-    {"Name":"コンクリ","Color":"#ffa500","recipi_num":0,"matSum":0},
-    {"Name":"石灰岩","Color":"#ffa500","recipi_num":0,"matSum":0},
+    
     ]
 }
 
@@ -46,6 +33,19 @@ return Mat_data.data[data_num];
 
 function RecipiData_Load(MatData){
     return Recipi_data.data[MatData.recipi_num]
+}
+//
+function Mat_DataLoad(data_str){
+    console.log(data_str)
+    let data = data_str;
+	fetch(data)
+		.then(function (response) {
+		  return response.json();
+		})
+		.then(function (Datalist) {
+            console.log(Datalist,Datalist.data)
+            Mat_data.data=Datalist.data;
+        })
 }
 
 //樹形図関連ここから
@@ -412,7 +412,12 @@ $("#close_delrecipi_button").on('click', function () {
 $("#close_recipi_button").on('click', function () {
     document.querySelector('#add_recipi_Dialog').close();
 });
-
+//素材読み込みボタン
+$("#MatData_Sample_add_button").on("click",function(){
+    if($("#MatData_Sample_Select").val()!=""){
+Mat_DataLoad($("#MatData_Sample_Select").val())
+    }
+})
 //計算するボタン
 $("#req_mat_math_button").on("click",function(){
     for(let n=0;n<Mat_data.data.length;n++){
@@ -427,8 +432,9 @@ $("#req_mat_math_button").on("click",function(){
         }
     $("#math_mat_result table").append('<tr><td>識別色</td><td>素材名称</td><td>必要数</td></tr>')
     for(let n=0;n<Mat_data.data.length;n++){
+        if(Mat_data.data[n].matSum>0){
         $("#math_mat_result table").append('<tr><td style="background-color: '+Mat_data.data[n].Color+';"></td><td>'+Mat_data.data[n].Name+'</td><td>'+Mat_data.data[n].matSum+'</td></tr>')
-        
+        }
     }
 
     console.log("data",Mat_data.data)

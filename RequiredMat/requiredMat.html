@@ -145,6 +145,7 @@
             <h2 id="sub_title">変更履歴</h2>
             <ul>
                 <li>2024/10/22:必要素材計算機実装</li>
+                <li>2024/10/24:satisfactory素材サンプル追加</li>
             </ul>
         </div>
         <div class="col-8" id="main">
@@ -168,6 +169,13 @@
                         <tr>
                             <td><input class="btn btn-primary" id="add_recipi_dialog_button" type="button" value="レシピ追加"></td>
                             <td><input class="btn btn-primary" id="del_recipi_dialog_button" type="button" value="レシピ情報削除"></td>
+                        </tr>
+                        <tr>
+                            <td><select id="MatData_Sample_Select">
+                                <option>素材情報サンプル</option>
+                                <option value="satisfactory_matData.json">satisfactory(要求素材のみ)</option>
+                            </select></td>
+                            <td><input class="btn btn-primary" id="MatData_Sample_add_button" type="button" value="サンプル追加"></td>
                         </tr>
                     </table>
                 </div>
@@ -392,6 +400,7 @@
     </main>
     <!-- JavaScriptをロードする -->
     <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
     <script src="main.js"></script>
     <script src="../sub.js"></script>
     </body>

@@ -10,6 +10,7 @@
         ,{"Title":"比率計算機","Category":"math","link":"./ratio_math/ratio_math.html","image":"./images/ratio_math.png","Date":"2024/06/07"}
         ,{"Title":"乱数生成機","Category":"other","link":"./randomGene/randomGene.html","image":"./images/random_Gene.png","Date":"2024/06/11"}
         ,{"Title":"ガチャ確率計算機","Category":"math","link":"./Gacha/Gacha.html","image":"./images/Gacha.png","Date":"2024/06/18"}
+        ,{"Title":"必要素材計算機","Category":"math","link":"./RequiredMat/requiredMat.html","image":"./images/req_mat_site.png","Date":"2024/10/22"}
        ]
     ,"all":[
         {"Title":"teki1号君","Category":"model","link":"./modelSite/model_5.html","image":"./images/model_5.png","Date":"2021/10/9"}
