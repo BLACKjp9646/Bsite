@@ -37,14 +37,14 @@ function RecipiData_Load(MatData){
 //
 function Mat_DataLoad(data_str){
     console.log(data_str)
-    let data = data_str;
+    let data = "Game_matData.json";
 	fetch(data)
 		.then(function (response) {
 		  return response.json();
 		})
 		.then(function (Datalist) {
-            console.log(Datalist,Datalist.data)
-            Mat_data.data=Datalist.data;
+            console.log(Datalist.GameName[0])
+            Mat_data.data=Datalist.GameName[0][data_str];
         })
 }
 

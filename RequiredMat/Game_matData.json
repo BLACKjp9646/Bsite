@@ -1,6 +1,7 @@
 {
-    "data":[
-        
+    "GameName":[
+    {
+    "satisfactory":[
     {"Name":"defalt","Color":"#909090","recipi_num":0,"matSum":0},
     {"Name":"鉄鉱石","Color":"#787882","recipi_num":0,"matSum":0},
     {"Name":"銅鉱石","Color":"#8d5e52","recipi_num":0,"matSum":0},
@@ -97,6 +98,24 @@
     {"Name":"生化学スカルプター","Color":"#d2620a","recipi_num":0,"matSum":0},
     {"Name":"AI拡張サーバー","Color":"#d2620a","recipi_num":0,"matSum":0},
     {"Name":"弾道ワープドライブ","Color":"#d2620a","recipi_num":0,"matSum":0}
+    ],
+    "PSO2":[
+        {"Name":"defalt","Color":"#FFFFFF","recipi_num":0,"matSum":0},
+        {"Name":"アストラルソール","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"マナレヴリー","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"アブソリュートグレア","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"ソールカタリスト","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"ダークネスソール","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"ファクターカタリスト","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"エーテルソール","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"レヴリーカタリスト","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"オメガメモリア","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"グレアカタリスト","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"フォトナーグレア","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"","Color":"#","recipi_num":0,"matSum":0},
+        {"Name":"","Color":"#","recipi_num":0,"matSum":0}
     ]
 
+}
+]
 }
