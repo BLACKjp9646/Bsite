@@ -9,6 +9,7 @@
 /*ここまで*/
 html{
 	width: 100%;;
+	background-color: black;
 }
 .background_img{
 	background: url(../images/backimage_1.png) no-repeat center;
@@ -83,6 +84,7 @@ html {
 	text-align: center;
 	padding-top: 300px;
 	color: rgba(137, 207, 235);
+	-webkit-text-stroke: black 1px;
 	font-family: 'Noto Serif JP';
 }
 #about_contents{

@@ -1,3 +1,20 @@
+// 幅が768px以上のビューポートをターゲットとするメディアクエリを作成
+const mediaQuery = window.matchMedia('(min-width: 768px)')
+
+function handleTabletChange(e) {
+	// メディアクエリがtrueかどうかを確認
+	if (e.matches) {
+	  // 次に、メッセージをコンソールに記録
+	  console.log('Media Query Matched!')
+	}
+  }
+  
+  // イベントリスナーを登録
+  mediaQuery.addListener(handleTabletChange)
+   
+  // 初期チェック
+  handleTabletChange(mediaQuery)
+
 $(document).ready(()=>{
 
 	// 今回の交差を監視する要素
