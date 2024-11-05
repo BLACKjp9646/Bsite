@@ -94,6 +94,7 @@ html {
 	font-size: 30px;
 }
 #about_image{
+	margin: 0 50px 0 0;
 }
 #about_text{
 	text-align: left;
