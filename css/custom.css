@@ -8,12 +8,13 @@
 
 /*ここまで*/
 html{
-	width: 100%;;
-	background-color: black;
+	scroll-behavior: smooth;
+	width: 100%;
 }
 .background_img{
 	background: url(../images/backimage_1.png) no-repeat center;
     background-attachment:fixed;
+	background-color: black;
     margin: 0;
     padding:0;
     width: 100%;
@@ -22,6 +23,7 @@ html{
     animation: fadeUp 1s forwards;
     background: url(../images/backimage_2.png) no-repeat  center;
     background-attachment:fixed;
+	background-color: black;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -74,9 +76,6 @@ transform-origin: center top;/*上部中央基点*/
 .gonav a:hover::after {
 transform: scale(1, 1);/*X方向にスケール拡大*/
 }
-html {
-    scroll-behavior: smooth;
-}
 
 
 #title_text{
@@ -98,13 +97,15 @@ html {
 }
 #about_text{
 	text-align: left;
+	
 }
 #about_text ul li{
 	padding-top: 20px;
 }
 #production_contents{
+	width: 90%;
 padding: 0 0 200px;
-margin:300px 5% 0 5%;
+margin:300px auto 0 auto;
 background: none;
 position: relative;
 }
@@ -141,7 +142,7 @@ a:link,a:visited,a:active{
 margin: 0;	
   }
 #nav_contents{
-	margin: 0;
+	margin: 0 auto;
 	color: black;
 	background-color: rgba(137,207,235, 70%);
 }
