@@ -12,11 +12,13 @@
 	<link rel="stylesheet" href="../publicset.css">
     <style>
         #canvas_container{
-            width: 600px;
+            width: 100%;
             margin: 0 auto;
-
         }
         #canvas{
+            margin: 0 auto;
+            width:100%;
+            height:150px;
             border: solid 1px;
         }
         #shape_type_input_table{
@@ -70,6 +72,9 @@
         <header class="head_active">
             <nav class="navbar navbar-expand-md nav_math">
                 <div class="container-fluid">
+                    <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <img src="../images/menu.png">
+                    </a>
                     <a class="navbar-brand" href="../index.html">
                         <img src="../images/SiteIcon.png">Portfolio
                     </a>
@@ -82,16 +87,28 @@
                         </a>
                 </ul>
                 </div>
+                <!--オフキャンバス↓-->
+			    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                    <div class="offcanvas-header nav_math">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg_math">
+                      <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+                      </ul>
+                    </div>
+                  </div>
+                  <!--オフキャンバス↑-->
             </nav>
         </header>
         <main class="row container">
-            <div class="col-3" id="sub">
+            <div class="col-md-3" id="sub">
             <h2 id="sub_title">変更履歴</h2>
             <ul>
                 <li>2024/07/23:図形計算機実装</li>
             </ul>
         </div>
-        <div class="col-8" id="main">
+        <div class="col-md-8" id="main">
                 <h2 id="sub_title" style="text-align: center;">図形計算</h2>
                 <div id="shape_type_input_table">
                     <table>
@@ -128,7 +145,7 @@
                     </table>
                 </div>
                 <div id="shape_math_ans_Container" class="row">
-                    <div class="col col-5">
+                    <div class="col col-md-5">
                     <input class="btn btn-primary" id="shape_type_button" type="button" value="図形表示">
                     <label id="input_detail_mode"><input type="checkbox" value="detail">詳細モード</label>
                     <input class="btn btn-primary" id="shape_math_button" type="button" value="計算する">
@@ -138,7 +155,7 @@
                     </div>
                 </div>
                 <div id="canvas_container">
-                    <canvas id="canvas" width="533px" height="350px"></canvas>
+                    <canvas id="canvas"></canvas>
                 </div>
                 <h1>計算結果</h1>
                 <h3 id="shape_math_ans">X×X=</h3>
@@ -158,6 +175,7 @@
     </main>
     <!-- JavaScriptをロードする -->
     <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="../libs/bootstrap/bootstrap.min.js"></script>
     <script src="main.js"></script>
     <script src="../sub.js"></script>
     </body>

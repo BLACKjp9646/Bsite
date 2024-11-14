@@ -12,26 +12,45 @@
 	<link rel="stylesheet" href="./css/custom.css">
 </head>
 <body class="background_img" id="top">
+
+
+
 	<!-- Header(Start) -->
 	<header class="head_active">
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
+				<a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+					<img src="./images/menu.png">
+				</a>
+				<a class="navbar-brand" href="#" >
 					<img src="./images/SiteIcon.png">Portfolio
 				</a>
 				<ul class="gonav">
-				<a class="navbar-brand" href="#about_contents">
-					<li>About</li>
-				</a>
-					<a class="navbar-brand" href="#production_contents">
-					<li>Production</li>
+					<a class="navbar-brand" href="#about_contents">
+						<li>About</li>
 					</a>
-					<a class="navbar-brand" href="#top">
-						<li>Top</li>
-					</a>
-			</ul>
+						<a class="navbar-brand" href="#production_contents">
+						<li>Production</li>
+						</a>
+						<a class="navbar-brand" href="#top">
+							<li>Top</li>
+						</a>
+				</ul>
 			</div>
+			<!--オフキャンバス↓-->
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+			<div class="offcanvas-header">
+			  <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: #fff;">Portfolio</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body" style="background-color: rgb(80,80,80);">
+			  <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+			  </ul>
+			</div>
+		  </div>
+		  <!--オフキャンバス↑-->
 		</nav>
+
 	</header>
 	<div id="title_text">
 		ポートフォリオ

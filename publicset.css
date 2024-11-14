@@ -9,6 +9,8 @@
 /*背景色設定*/
 .container{
     background: none;
+    margin: 0;
+    max-width: none;
 }
 .bg_math{
     width: 100%;
@@ -55,6 +57,10 @@ html{
     scroll-behavior: smooth;
     color: black;
 }
+.navbar-brand-nonradius img{
+	width: 28px; height: auto;
+	margin: 0px 5px; padding: 0px;
+}
 
 .navbar-brand{
 	color: black;
@@ -99,6 +105,14 @@ transform-origin: center top;/*上部中央基点*/
 transform: scale(1, 1);/*X方向にスケール拡大*/
 }
 
+.offcanvas{
+	background-color: rgb(50, 50, 50);
+}
+
+#offcanvas_linkList{
+    list-style: none;
+}
+
 a{
 	color:unset;
 	text-decoration: none;
@@ -114,7 +128,7 @@ main{
     padding-top: 80px;
 }
 .container{
-    margin: 0 5%;
+    padding: 80px 5%;
 }
 #main,#sub{
     background-color: rgb(240, 240, 240);

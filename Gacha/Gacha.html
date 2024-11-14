@@ -20,22 +20,26 @@
 			padding-bottom: 10px;
 		}
 		#chance_input_table table,#chance_detail_input_table table{
-			width: 90%;
-			margin: 0 30% 10px 10%;
+			width: 100%;
+			margin: 0 auto 10px auto;
+			padding: 0 auto;
 			text-align: left;
 		}
 		#chance_input_table table tr td input,#chance_detail_input_table table tr td input{
 			width: 100px;
+			font-size: max(1vw,8px);
 		}
 		#chance_input_table table tr td select,#chance_detail_input_table table tr td select{
-			width: 200px;
+			width: 50%;
+			max-width: 160px;
 		}
 		#chance_table{
 			padding: 20px 0;
 		}
 		#chance_table table{
-			width: 80%;
+			width: 100%;
 			margin: 0 auto 10px auto;
+			font-size:max( 1.5vw,8px);
 		}
 		#chance_table table tr td{
 			border: 1px solid;
@@ -50,7 +54,7 @@
 			color: red;
 		}
 		#chance_detail_table tr td input{
-			width: 80px;
+			width: 90%;
 			margin: 0 auto 10px auto;
 		}
 		#chance_detail_table tr td{
@@ -84,6 +88,9 @@
 	<header class="head_active">
 		<nav class="navbar navbar-expand-md nav_math">
 			<div class="container-fluid">
+				<a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+					<img src="../images/menu.png">
+				</a>
 				<a class="navbar-brand" href="../index.html">
 					<img src="../images/SiteIcon.png">Portfolio
 				</a>
@@ -99,16 +106,29 @@
 					</a>
 			</ul>
 			</div>
+			<!--オフキャンバス↓-->
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                <div class="offcanvas-header nav_math">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body bg_math">
+                  <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+                  </ul>
+                </div>
+              </div>
+              <!--オフキャンバス↑-->
 		</nav>
 	</header>
     <main class="row container">
-        <div class="col-2" id="sub">
+        <div class="col-md-2" id="sub">
             <p id="sub_title">更新履歴</p>
             <ul>
                 <li>2024/06/18:ガチャ確率計算機実装</li>
+				<li>2024/11/14:スマホサイズのレイアウトに対応</li>
             </ul>
         </div>
-        <div class="col-8" id="main" style="text-align: center;">
+        <div class="col-md-8" id="main" style="text-align: center;">
             <h2 id="sub_title">ガチャ確率計算機</h2>
 			<div id="chance_result">
 				<h3 id="bold">排出率*%を*回引いて当たる確率は</h3>

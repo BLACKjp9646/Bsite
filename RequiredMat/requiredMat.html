@@ -40,7 +40,10 @@
 		#MatData_input_table table tr td input{
 			width: 150px;
 		}
-
+        #MatData_input_table table tr td select{
+			max-width: 120px;
+		}
+        
         #math_mat_result{
             margin-bottom: 30px;
 			padding-bottom: 10px;
@@ -72,7 +75,7 @@
             width: 60%;
 		}
         .req_dialog{
-            width: 50%;
+            width: 80%;
             border: none;
             border-radius: 5px;
             padding: 0;
@@ -85,9 +88,15 @@
         .req_dialog div{
             padding: 10px;
         }
+        .req_dialog div table tr td:first-child{
+            width: 30%;
+        }
         #req_mat_math_button{
             width: 70%;
             margin: 0 15%;
+        }
+        #input_create_num,#input_req_mat_num_1,#input_req_mat_num_2,#input_req_mat_num_3,#input_req_mat_num_4,#input_req_mat_num_5{
+            width: 20%;
         }
 		.errortxt{
             color: red;
@@ -114,12 +123,17 @@
         .node-goal{
             line-height: 0px;
         }
+
     </style>
     </head>
+
     <body class="bg_math">
         <header class="head_active">
             <nav class="navbar navbar-expand-md nav_math">
                 <div class="container-fluid">
+                    <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <img src="../images/menu.png">
+                    </a>
                     <a class="navbar-brand" href="../index.html">
                         <img src="../images/SiteIcon.png">Portfolio
                     </a>
@@ -138,18 +152,31 @@
                         </a>
                 </ul>
                 </div>
+                <!--オフキャンバス↓-->
+			    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                <div class="offcanvas-header nav_math">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body bg_math">
+                  <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+                  </ul>
+                </div>
+              </div>
+              <!--オフキャンバス↑-->
             </nav>
         </header>
         <main class="container">
             <div class="row">
-            <div class="col-3" id="sub">
+            <div class="col-md-3" id="sub">
             <h2 id="sub_title">変更履歴</h2>
             <ul>
                 <li>2024/10/22:必要素材計算機実装</li>
                 <li>2024/10/24:satisfactory素材サンプル追加</li>
+                <li>2024/11/14:スマホサイズのレイアウトに対応</li>
             </ul>
         </div>
-        <div class="col-8" id="main">
+        <div class="col-md-8" id="main">
                 <h2 id="sub_title" style="text-align: center;">必要素材計算</h2>
                 <div id="MatData_input_table">
                     <table>
@@ -172,7 +199,7 @@
                             <td><input class="btn btn-primary" id="del_recipi_dialog_button" type="button" value="レシピ情報削除"></td>
                         </tr>
                         <tr>
-                            <td><select id="MatData_Sample_Select">
+                            <td><select id="MatData_Sample_Select" style="max-width: 150px;">
                                 <option>素材情報サンプル</option>
                                 <option value="satisfactory">satisfactory(要求素材のみ)</option>
                             </select></td>
@@ -282,7 +309,7 @@
                 <!--レシピ情報削除ダイアログ↑ここまで-->
 
                 <!--レシピ追加ダイアログ↓ここから-->
-                <dialog class="req_dialog" id="add_recipi_Dialog">
+                <dialog class="req_dialog" id="add_recipi_Dialog" style="font-size: max(1.2vw,12px);">
                     <h2>レシピの追加</h2>
                     <div id="MatData_input_table">
                         <table>
@@ -402,6 +429,7 @@
     <!-- JavaScriptをロードする -->
     <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="../libs/bootstrap/bootstrap.min.js"></script>
     <script src="main.js"></script>
     <script src="../sub.js"></script>
     </body>

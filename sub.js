@@ -1,22 +1,14 @@
 // 幅が768px以上のビューポートをターゲットとするメディアクエリを作成
-const mediaQuery = window.matchMedia('(min-width: 768px)')
-
-function handleTabletChange(e) {
-	// メディアクエリがtrueかどうかを確認
-	if (e.matches) {
-	  // 次に、メッセージをコンソールに記録
-	  console.log('Media Query Matched!')
-	}
-  }
-  
-  // イベントリスナーを登録
-  mediaQuery.addListener(handleTabletChange)
-   
-  // 初期チェック
-  handleTabletChange(mediaQuery)
+const mediaQuery = window.matchMedia('(min-width: 560px)')
 
 $(document).ready(()=>{
+	let navData = $(".gonav").clone();
+	let offcanvas_navData = $(".gonav").children().clone();
+	let menuData = $(".navbar-brand-nonradius").clone();
 
+	$(".gonav").remove();
+	$(".navbar-brand-nonradius").remove();
+	$("#offcanvas_linkList").append(offcanvas_navData)
 	// 今回の交差を監視する要素
 	const boxes = document.querySelectorAll("#title_text")
 
@@ -30,7 +22,7 @@ $(document).ready(()=>{
 	const observer = new IntersectionObserver(entries=>{
 		entries.forEach(entry=>{
 			if(entry.isIntersecting){
-				console.log("画像切り替え")
+				//console.log("画像切り替え")
 				$(".addimg").addClass("background_img");
                 $(".addimg").removeClass("addimg");
 			}
@@ -59,4 +51,28 @@ window.addEventListener('scroll', () => {
   }
   preY = currentY; // 前回のスクロール位置を更新
 });
+
+
+function handleTabletChange(e) {
+	// メディアクエリがtrueかどうかを確認
+	if (e.matches) {
+	  // PCサイズ
+	  //console.log("PC")
+	  $(".container-fluid").append(navData)
+	  $(".navbar-brand-nonradius").remove()
+	}
+	else{
+		//スマホサイズ
+		//console.log("スマホ")
+		$(".container-fluid").prepend(menuData)
+		$(".container-fluid .gonav").remove()
+	}
+  }
+  
+  // イベントリスナーを登録
+  mediaQuery.addListener(handleTabletChange)
+   
+  // 初期チェック
+  handleTabletChange(mediaQuery)
+
 });

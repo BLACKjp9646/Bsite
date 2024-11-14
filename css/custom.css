@@ -10,6 +10,7 @@
 html{
 	scroll-behavior: smooth;
 	width: 100%;
+	
 }
 .background_img{
 	background: url(../images/backimage_1.png) no-repeat center;
@@ -36,6 +37,10 @@ html{
     left: 0;  right: 0;
 	background: rgba(0, 0, 0, 0.4);
     /*opacity:0.4;*/
+}
+.navbar-brand-nonradius img{
+	width: 28px; height: auto;
+	margin: 0px 5px; padding: 0px;
 }
 .navbar-brand img{
 	width: 28px; height: auto;
@@ -77,9 +82,16 @@ transform-origin: center top;/*上部中央基点*/
 transform: scale(1, 1);/*X方向にスケール拡大*/
 }
 
+.offcanvas{
+	background-color: rgb(50, 50, 50);
+}
+
+#offcanvas_linkList{
+    list-style: none;
+}
 
 #title_text{
-	font-size: 96px;
+	font-size: 10vw;
 	text-align: center;
 	padding-top: 300px;
 	color: rgba(137, 207, 235);
@@ -90,7 +102,7 @@ transform: scale(1, 1);/*X方向にスケール拡大*/
 	margin: 300px 10% 150px;
 	color: #fff;
 	text-align: center;
-	font-size: 30px;
+	font-size: max(2vw,24px);
 }
 #about_image{
 	margin: 0 50px 0 0;

@@ -160,7 +160,7 @@ function recipi_math(recipi_data_num,goalnum){//レシピ変数,目標制作数
     if(tempmat1data != null){
     tempmat1num*=createnum;
     tempmat1data.matSum+=tempmat1num;
-    console.log(tempmat1data.recipi_num)
+    //console.log(tempmat1data.recipi_num)
     if(tempmat1data.recipi_num != 0){
         recipi_math(tempmat1data.recipi_num,tempmat1num)
     }
@@ -309,7 +309,6 @@ $("#add_recipi_button").on('click', function () {
     
     for(let n=0;n<5;n++){
         if($("#input_recipi_mat_select_"+(n+1)).val() != ""){
-            console.log("???")
             if($("#input_recipi_mat_select_"+(n+1)).val() == tempname){
                 temp_errortxt = "目標素材と素材で同じ名称のものは使えません。"
                 $("#add_recipi_errortxt").text(temp_errortxt);
@@ -437,8 +436,8 @@ $("#req_mat_math_button").on("click",function(){
         }
     }
 
-    console.log("data",Mat_data.data)
-    console.log("recipi",Recipi_data.data)
+    //console.log("data",Mat_data.data)
+    //console.log("recipi",Recipi_data.data)
 })
 
 
