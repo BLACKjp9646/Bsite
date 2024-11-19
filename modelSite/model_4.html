@@ -17,6 +17,9 @@
   <header class="head_active">
 		<nav class="navbar navbar-expand-md nav_model">
 			<div class="container-fluid">
+        <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <img src="../images/menu.png">
+      </a>
 				<a class="navbar-brand" href="../index.html">
 					<img src="../images/SiteIcon.png">Portfolio
 				</a>
@@ -29,6 +32,18 @@
 					</a>
 			</ul>
 			</div>
+      <!--オフキャンバス↓-->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+        <div class="offcanvas-header nav_model">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body bg_model">
+          <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+          </ul>
+        </div>
+      </div>
+      <!--オフキャンバス↑-->
 		</nav>
 	</header>
     <model-viewer
@@ -47,7 +62,7 @@
     }
     </style>
     <main class="row container" id="Commitment_contents">
-      <div class="col-3" id="sub">
+      <div class="col-md-3" id="sub">
           <div>
               <p id="sub_title">更新履歴</p>
               <ul>
@@ -56,7 +71,7 @@
               </ul>
           </div>
       </div>
-      <div class="col-8" id="main">
+      <div class="col-md-9" id="main">
       <h2 id="center_text">ちょこっとこだわり解説</h2>
       <p>アニメーション含め制作期間1.5ヶ月の力を込めすぎたヤツです。今は亡き<a href="./model_5.html" style="color: aqua;">[teki1号]</a>君の意思を継いだ４脚で、動く時に違和感なく動けるように足回りに駆動部位が多めに設定されてます。
         ゲーム内でのコイツの役回りは中ボスなので他とは違うというのを意識してもらうために色合いを変えたり存在感(大砲)を出したりしてます。<br>

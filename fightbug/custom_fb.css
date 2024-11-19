@@ -5,6 +5,7 @@ html{
 	height: 1400px;
 }
 pre{
+	padding: 0;
 background-color: #333333;
 color: #ffffff;
 }

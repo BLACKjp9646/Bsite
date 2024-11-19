@@ -1,3 +1,7 @@
+var w = $('#canvas_container').width();
+var h = $('#canvas_container').height();
+$('#canvas').attr('width', w);
+$('#canvas').attr('height', h);
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let x_1=0,y_1=0,tall_1=0,visr_x=0,visr_y=0,radian_x=45,radian_y=45;
@@ -218,6 +222,10 @@ function select_shape(select_num){
 
 function shape_math(shape,x,y,tall,radian_x,radian_y,math_visr_x,math_visr_y,math_visr_tall,LW){
     ctx.lineWidth = 2;//線の太さ
+    var w = $('#canvas_container').width();
+    var h = $('#canvas_container').height();
+    $('#canvas').attr('width', w);
+    $('#canvas').attr('height', h);
     let widthCenter = canvas.clientWidth/2//横方向の中心座標
     let lengthCenter = canvas.clientHeight/2//縦方向の中心座標
     let tempText = ""

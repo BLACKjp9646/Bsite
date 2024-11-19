@@ -17,6 +17,9 @@
   <header class="head_active">
 		<nav class="navbar navbar-expand-md nav_image">
 			<div class="container-fluid">
+        <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <img src="../images/menu.png">
+        </a>
 				<a class="navbar-brand" href="../index.html">
 					<img src="../images/SiteIcon.png">Portfolio
 				</a>
@@ -29,19 +32,32 @@
 					</a>
 			</ul>
 			</div>
+      <!--オフキャンバス↓-->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+        <div class="offcanvas-header nav_image">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body bg_image">
+          <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+          </ul>
+        </div>
+      </div>
+      <!--オフキャンバス↑-->
 		</nav>
 	</header>
     <main class="row container">
       <img src="../images/2024BLACKアイコン.png" alt="2024アイコン画像">
-      <div class="col-3" id="sub">
+      <div class="col-md-3" id="sub">
           <div>
               <p id="sub_title">更新履歴</p>
               <ul>
                   <li>2024/5/16:作成</li>
+                  <li>2024/11/19:スマホサイズのレイアウトに対応</li>
               </ul>
           </div>
       </div>
-      <div class="col-8" id="main">
+      <div class="col-md-9" id="main">
       <h2 id="center_text">ちょこっとこだわり解説</h2>
       <p id="Commitment_contents">2024年に自分の顔として自作したアイコンです。
         今年は他の方からアドバイスを受けながらデザインしました。

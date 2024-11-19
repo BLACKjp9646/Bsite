@@ -14,11 +14,9 @@
         #canvas_container{
             width: 100%;
             margin: 0 auto;
+
         }
         #canvas{
-            margin: 0 auto;
-            width:100%;
-            height:150px;
             border: solid 1px;
         }
         #shape_type_input_table{
@@ -90,7 +88,7 @@
                 <!--オフキャンバス↓-->
 			    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
                     <div class="offcanvas-header nav_math">
-                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Portfolio</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body bg_math">
@@ -106,6 +104,7 @@
             <h2 id="sub_title">変更履歴</h2>
             <ul>
                 <li>2024/07/23:図形計算機実装</li>
+                <li>2024/11/14:スマホサイズのレイアウトに対応</li>
             </ul>
         </div>
         <div class="col-md-8" id="main">
@@ -155,7 +154,8 @@
                     </div>
                 </div>
                 <div id="canvas_container">
-                    <canvas id="canvas"></canvas>
+                    <canvas id="canvas" width="300px" height="250px"></canvas>
+                    
                 </div>
                 <h1>計算結果</h1>
                 <h3 id="shape_math_ans">X×X=</h3>

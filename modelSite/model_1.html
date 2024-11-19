@@ -17,6 +17,9 @@
   <header class="head_active">
 		<nav class="navbar navbar-expand-md nav_model">
 			<div class="container-fluid">
+        <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <img src="../images/menu.png">
+      </a>
 				<a class="navbar-brand" href="../index.html">
 					<img src="../images/SiteIcon.png">Portfolio
 				</a>
@@ -29,6 +32,18 @@
 					</a>
 			</ul>
 			</div>
+      <!--オフキャンバス↓-->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+        <div class="offcanvas-header nav_model">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body bg_model">
+          <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+          </ul>
+        </div>
+      </div>
+      <!--オフキャンバス↑-->
 		</nav>
 	</header>
     <model-viewer
@@ -47,16 +62,17 @@
     }
     </style>
     <main class="row container" id="Commitment_contents">
-      <div class="col-3" id="sub">
+      <div class="col-md-3" id="sub">
           <div>
               <p id="sub_title">更新履歴</p>
               <ul>
                   <li>2023/8/12:作成</li>
                   <li>2024/5/15:デザイン一新</li>
+                  <li>2024/11/19:スマホサイズのレイアウトに対応</li>
               </ul>
           </div>
       </div>
-      <div class="col-8" id="main">
+      <div class="col-md-9" id="main">
       <h2 id="center_text">ちょこっとこだわり解説</h2>
       <p>全体的に駆動域を意識して作りました。コイツの前身となるモデルに<a href="./model_5.html">[teki1号]</a>君がいましたがソイツは足回りなどが酷かったため没になった歴史があります。</p>
     </div>

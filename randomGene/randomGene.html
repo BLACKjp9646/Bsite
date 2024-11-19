@@ -40,6 +40,9 @@
 	<header class="head_active">
 		<nav class="navbar navbar-expand-md nav_other">
 			<div class="container-fluid">
+				<a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+					<img src="../images/menu.png">
+				</a>
 				<a class="navbar-brand" href="../index.html">
 					<img src="../images/SiteIcon.png">Portfolio
 				</a>
@@ -47,18 +50,34 @@
 					<a class="navbar-brand" href="#top">
 						<li>Top</li>
 					</a>
+					<a class="navbar-brand" href="#random_log">
+						<li>Log</li>
+					</a>
 			</ul>
 			</div>
+			<!--オフキャンバス↓-->
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                <div class="offcanvas-header nav_other">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body bg_other">
+                  <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+                  </ul>
+                </div>
+              </div>
+              <!--オフキャンバス↑-->
 		</nav>
 	</header>
     <main class="row container">
-        <div class="col-2" id="sub">
+        <div class="col-xs-12 col-sm-12 col-md-2" id="sub">
             <p id="sub_title">更新履歴</p>
             <ul>
                 <li>2024/06/11:乱数生成実装</li>
+				<li>2024/11/19:スマホサイズのレイアウトに対応</li>
             </ul>
         </div>
-        <div class="col-8" id="main" style="text-align: center;">
+        <div class="col-xs-6 col-sm-9 col-md-8" id="main" style="text-align: center;">
             <h2 id="sub_title">乱数生成</h2>
 			<div class="row">
 				<div class="col col-5" id="random_contents">
@@ -115,7 +134,7 @@
 
 		</div>
         </div>
-        <div class="col-2" id="sub">
+        <div class="col-xd-4 col-sm-3 col-md-2" id="sub">
             <p id="sub_title">乱数ログ　<label id="log_detail"><input type="checkbox" >詳細</label></p>
 			<ul id="random_log">
 
