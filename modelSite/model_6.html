@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/SiteIcon.png">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>アイコンの剣</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../publicset.css">
+      <link rel="stylesheet" href="./custom_fb.css">
+  </head>
+<body class="bg_model">
+  <header class="head_active">
+		<nav class="navbar navbar-expand-md nav_model">
+			<div class="container-fluid">
+        <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <img src="../images/menu.png">
+      </a>
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+				<a class="navbar-brand" href="#Commitment_contents">
+					<li>Commitment</li>
+				</a>
+					<a class="navbar-brand" href="#top">
+						<li>Top</li>
+					</a>
+			</ul>
+			</div>
+      <!--オフキャンバス↓-->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+        <div class="offcanvas-header nav_model">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body bg_model">
+          <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+          </ul>
+        </div>
+      </div>
+      <!--オフキャンバス↑-->
+		</nav>
+	</header>
+    <model-viewer
+  src="./weponecamo_1.glb"
+  camera-controls
+  shadow-intensity="1.5"
+  shadow-softness="0.5"
+></model-viewer>
+<style>
+    model-viewer {
+      padding: 100px 0 0;
+      margin: 0 auto;
+      width: 80%;
+      height: 540px;
+      background-color: white;
+    }
+    </style>
+    <main class="row container" id="Commitment_contents">
+      <div class="col-md-3" id="sub">
+          <div>
+              <p id="sub_title">更新履歴</p>
+              <ul>
+                  <li>2023/12/05:作成</li>
+              </ul>
+          </div>
+      </div>
+      <div class="col-md-9" id="main">
+      <h2 id="center_text">ちょこっとこだわり解説</h2>
+      <p><a href="../imageSite/2024Icon.html" style="color: aqua;">[2024アイコン]</a>の中にある剣の3Dモデルです。2025アイコン作成に必要になりそうだったので
+        せっかくなので真面目にきっちりとしたものをつくりました。刀身部分の装飾は完全に再現しましたが持ち手がとても持ちづらそうだったので角を丸めました。
+      </p>
+    </div>
+  </main>
+  <!-- Footer(Start) -->
+<footer>
+  Copyright © black(ueda ryouta)2024 All rights reserved.
+</footer>
+<!-- Footer(End) -->
+
+<!-- JavaScript -->
+<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+<script src="../libs/bootstrap/bootstrap.min.js"></script>
+  <script src="../sub.js"></script>
+</body>
+</html>
