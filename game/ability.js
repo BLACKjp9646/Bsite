@@ -4,7 +4,6 @@ let expo_imgsrc = "";
 let ability_datalist
 $(document).ready(()=>{
     function expo_DataLoad(data_str){
-        console.log(data_str)
         let data = "ability_expotxt.json";
         fetch(data)
             .then(function (response) {
@@ -12,7 +11,6 @@ $(document).ready(()=>{
             })
             .then(function (Datalist) {
                 ability_datalist = Datalist[data_str];
-                console.log(ability_datalist)
                 $("#ability_expo").text(Datalist[data_str]["text"])
                 $("#ability_img").attr("src",Datalist[data_str]["img"])
             })
