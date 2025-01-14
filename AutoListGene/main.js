@@ -9,7 +9,8 @@ let list_element = {
 
 let element_type_list = {
     "c":{"list_length":4,1:"int",2:"string",3:"float",4:"bool",11:"整数(int)",12:"文字列(string)",13:"数値(float)",14:"真偽(bool)"},
-    "js":{"list_length":2,1:"let",11:"値変動可(let)",2:"const",12:"値固定(const)"}
+    "js":{"list_length":2,1:"let",11:"値変動可(let)",2:"const",12:"値固定(const)"},
+    "py":{"list_length":3,1:"list",11:"リスト",2:"tuple",12:"タプル",3:"dict",13:"ディクショナリ"}
 }
 let user_element_click=false
 //C#の記述

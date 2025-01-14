@@ -1,88 +1,116 @@
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <link rel="stylesheet" href="../style.css">
-        <meta charset="UTF-8"/>
-        <title>操作について</title>
-    </head>
-    <body>
-        <header id="top">
-            <a href="../index.html"><h1>いろいろと置いておくサイト</h1></a>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>製作中の3Dアクションゲーム</title>
+	<!--Style -->
+	<style type="text/css">body{margin:0px; padding:0px;}</style>
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+</head>
+<body>
+	<body class="bg_game">
+        
+        <header class="head_active">
+            <nav class="navbar navbar-expand-md nav_game">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <img src="../images/menu.png">
+                    </a>
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/SiteIcon.png">Portfolio
+                    </a>
+                    <ul class="gonav">
+                        <a class="navbar-brand" href="#top">
+                            <li>Top</li>
+                        </a>
+                </ul>
+                </div>
+                <!--オフキャンバス↓-->
+			    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                    <div class="offcanvas-header nav_game">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg_game">
+                      <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+                      </ul>
+                    </div>
+                  </div>
+                  <!--オフキャンバス↑-->
+            </nav>
         </header>
-        <nav>
-            <ul>
-                <li id="omikuji_html"><a href="../omikuji/index.html">おみくじ</a></li>
-        <li id="keisan_html"><a href="../keisanki/keisan.html">でんたく</a></li>
-        <li id="gasorin_html"><a href="../gasorin/gasorin.html">がそりん</a></li>
-        <li id="tomas_html"><a href="../tomas/index.html">あうと</a></li>
-        <li id="game_html"><a href="../game/game.html">げーむ</a></li>
-            </ul>
-        </nav>
-        <div id="contents">
-            <div class="sub">
-                <h2>変更履歴</h2>
+        <main class="row container">
+            <div class="col-md-3" id="sub">
+            <h2 id="sub_title">変更履歴</h2>
                 <ul>
                     <li>2023/11/07:ゲーム用サイト実装</li>
                 </ul>
-                <h2>ゲーム補足説明</h2>
+            <h2 id="sub_title">ゲーム補足説明</h2>
                 <ul>
                     <li>操作について</li>
-                    <a href="game_skill.html"><li>スキルの種類について</li></a>
+                    <a href="./game_skill.html"><li>スキルの種類について</li></a>
                     <a href="game_ability.html"><li>アビリティの補足</li></a>
                     <a href="game_skillslot.html"><li>スキルスロットについて</li></a>
                     <a href="./game_CheckedBug.html"><li>現在確認済みのバグ</li></a>
                 </ul>
-            </div>
-            <div class="main">
-                <h3><a href="game.html">←もどる</a></h3>
-                <h2>操作について</h2>
-                <table id="game_table">
-                    <tr>
-                        <th>WASD</th>
-                        <td>移動</td>
-                    </tr>
-                    <tr>
-                        <th>LSHIFT</th>
-                        <td>ダッシュ</td>
-                    </tr>
-                    <tr>
-                        <th>E</th>
-                        <td>インタラクト</td>
-                    </tr>
-                    <tr>
-                        <th>R</th>
-                        <td>鉄の回収</td>
-                    </tr>
-                    <tr>
-                        <th>Q</th>
-                        <td>武器の装備</td>
-                    </tr>
-                    <tr>
-                        <th>X</th>
-                        <td>回避</td>
-                    </tr>
-                    <tr>
-                        <th>SPACE</th>
-                        <td>（武器所持時）攻撃</td>
-                    </tr>
-                    <tr>
-                        <th>Z</th>
-                        <td>（敵が近くにいる時）ロックオン</td>
-                    </tr>
-                    <tr>
-                        <th>マウス</th>
-                        <td>視点操作</td>
-                    </tr>
-                    <tr>
-                        <th>マウススクロール</th>
-                        <td>視点ズームイン/ズームアウト</td>
-                    </tr>
-                </table>
-                <h1></h1>
-            </div>
-    </div>
-    <!-- JavaScriptをロードする -->
-    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="main.js"></script>
-    </body>
+        </div>
+        <div class="col-md-8" id="main">
+            <h3><a href="./game.html#backpoint">←もどる</a></h3>
+			<h1 id="sub_title">操作方法</h1>
+            <table id="game_table">
+                <tr>
+                    <th>WASD</th>
+                    <td>移動</td>
+                </tr>
+                <tr>
+                    <th>LSHIFT</th>
+                    <td>ダッシュ</td>
+                </tr>
+                <tr>
+                    <th>E</th>
+                    <td>インタラクト</td>
+                </tr>
+                <tr>
+                    <th>R</th>
+                    <td>鉄の回収</td>
+                </tr>
+                <tr>
+                    <th>Q</th>
+                    <td>武器の装備</td>
+                </tr>
+                <tr>
+                    <th>X</th>
+                    <td>回避</td>
+                </tr>
+                <tr>
+                    <th>SPACE</th>
+                    <td>（武器所持時）攻撃</td>
+                </tr>
+                <tr>
+                    <th>Z</th>
+                    <td>（敵が近くにいる時）ロックオン</td>
+                </tr>
+                <tr>
+                    <th>マウス</th>
+                    <td>視点操作</td>
+                </tr>
+                <tr>
+                    <th>マウススクロール</th>
+                    <td>視点ズームイン/ズームアウト</td>
+                </tr>
+            </table>
+</div>
+</main>
+<!-- JavaScriptをロードする -->
+<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+<script src="../libs/bootstrap/bootstrap.min.js"></script>
+<script src="main.js"></script>
+<script src="../sub.js"></script>
+</body>
 </html>

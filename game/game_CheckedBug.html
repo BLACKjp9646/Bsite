@@ -1,22 +1,59 @@
-
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <link rel="stylesheet" href="../style.css">
-        <meta charset="UTF-8"/>
-        <title>確認済みのバグ</title>
-    </head>
-    <body>
-        <header id="top">
-            <a href="../index.html"><h1>いろいろと置いておくサイト</h1></a>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>製作中の3Dアクションゲーム</title>
+	<!--Style -->
+	<style type="text/css">body{margin:0px; padding:0px;}</style>
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+</head>
+<body>
+	<body class="bg_game">
+        
+        <header class="head_active">
+            <nav class="navbar navbar-expand-md nav_game">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <img src="../images/menu.png">
+                    </a>
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/SiteIcon.png">Portfolio
+                    </a>
+                    <ul class="gonav">
+                        <a class="navbar-brand" href="#top">
+                            <li>Top</li>
+                        </a>
+                </ul>
+                </div>
+                <!--オフキャンバス↓-->
+			    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                    <div class="offcanvas-header nav_game">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg_game">
+                      <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+                      </ul>
+                    </div>
+                  </div>
+                  <!--オフキャンバス↑-->
+            </nav>
         </header>
-        <div id="contents">
-            <div class="sub">
-                <h2>変更履歴</h2>
+        <main class="row container">
+            <div class="col-md-3" id="sub">
+            <h2 id="sub_title">変更履歴</h2>
                 <ul>
+                    <li>2023/11/07:ゲーム用サイト実装</li>
+                    <li>2023/11/08:操作説明実装</li>
+                    <li>2023/11/10:スキル説明実装</li>
                     <li>2024/01/11:確認済バグサイト実装</li>
                 </ul>
-                <h2>ゲーム補足説明</h2>
+            <h2 id="sub_title">ゲーム補足説明</h2>
                 <ul>
                     <a href="game_cont.html"><li>操作について</li></a>
                     <a href="game_skill.html"><li>スキルの種類について</li></a>
@@ -24,48 +61,48 @@
                     <a href="game_skillslot.html"><li>スキルスロットについて</li></a>
                     <a ><li>現在確認済みのバグ</li></a>
                 </ul>
-            </div>
-            <div class="main">
-                
-                
-                    <h3><a href="game.html">←もどる</a></h3>
-                    <h2>現在確認済みのバグ</h2>
-                    <div id="game_bug_container"></div>
-                <ul id="game_bug_li">
-                    <li>武器解除後に無を取得してしまう現象</li>
-                    <li>アジリティアップ、エクストラゲージ、スラストブレイク、ヴォーパルスラストブレイク、ソードコンボエクストラ/マスタリー、HP版アビリティ各種、回復量アップが使えない</li>
-                    <li>メニュー画面でカーソルを合わせたボタンが光り続ける現象</li>
-                    <li>突進してくる敵がプレイヤーの真上に乗ったり壁を飛び越えて飛んでいく現象</li>
-                    <li>ウェポンクラッシュパンチのエフェクトが稀に変な挙動をする</li>
-                    <li>HPが0になった時にアニメーションが適応されない現象</li>
-                    <li>テレポートしたとき稀に地面に埋まる現象</li>
-                    <li>ウェポンスローを特定の場所に投げ込むと一定期間武器が取り出せなくなる現象</li>
-                    <li>レベルアップ時の演出が出てこない、SPが正しく譲渡されない現象</li>
-                </ul>
+        </div>
+        <div class="col-md-8" id="main">
+            <h3><a href="./game.html#backpoint">←もどる</a></h3>
+			<h1 id="sub_title">現在確認済みのバグ</h1>
+            <div id="game_bug_container"></div>
+            <ul id="game_bug_li">
+                <li>武器解除後に無を取得してしまう現象</li>
+                <li>スラストブレイク、ヴォーパルスラストブレイク使用時に突きモーションから動かなくなる現象</li>
+                <li>突進してくる敵がプレイヤーの真上に乗ったり壁を飛び越えて飛んでいく現象</li>
+                <li>ウェポンクラッシュパンチのエフェクトが稀に変な挙動をする</li>
+                <li>HPが0になった時にアニメーションが適応されない現象</li>
+                <li>テレポートしたとき稀に地面に埋まる現象</li>
+                <li>ウェポンスローを特定の場所に投げ込むと一定期間武器が取り出せなくなる現象</li>
+                <li>レベルアップ時の演出が出てこない、SPが正しく譲渡されない現象</li>
+            </ul>
+            <br>
+            <h2 id="sub_title">バグのような仕様について</h2>
+            <ul id="game_bug_QA">
+                <li>Q:唐突にゲームが始まる、最後の敵を倒したあとが何もない</li>
+                <li>A:現在はステージ1だけです。そのため倒した後に何もないのが現在の仕様となります。今後はステージを自由に切り替えつつ楽しめるようにしていく予定です。</li>
                 <br>
-                <h2>バグのような仕様について</h2>
-                <ul id="game_bug_QA">
-                    <li>Q:唐突にゲームが始まる、最後の敵を倒したあとが何もない</li>
-                    <li>A:現在はステージ1だけです。そのため倒した後に何もないのが現在の仕様となります。今後はステージを自由に切り替えつつ楽しめるようにしていく予定です。</li>
-                    <br>
-                    <li>Q:武器が勝手に解除される</li>
-                    <li>A:画面右上のゲージが0になると強制的に解除されます。</li>
-                    <br>
-                    <li>Q:テレポート前の箱が消えた</li>
-                    <li>A:回収可能な鉄であるためRキーを押すと回収することができます。回収可能なエフェクトが出ないのはバグです</li>
-                    <br>
-                    <li>Q:敵が上から降って来た</li>
-                    <li>A:現在は仕様としていますが今後変更する可能性が高いです。<div id="torikesi">そもそも上から出す意味とは</div></li>
-                    <br>
-                    <li>Q:ローリング回避中に武器が出て来た</li>
-                    <li>A:一応仕様です。詳しくは言いませんが色々と使えると思いたいです。</li>
-                    
-                </ul>
-            </div>
-            </div>
-    </div>
-    <!-- JavaScriptをロードする -->
-    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="main.js"></script>
-    </body>
+                <li>Q:武器が勝手に解除される</li>
+                <li>A:画面右上のゲージが0になると強制的に解除されます。</li>
+                <br>
+                <li>Q:テレポート前の箱が消えた</li>
+                <li>A:回収可能な鉄であるためRキーを押すと回収することができます。回収可能なエフェクトが出ないのはバグです</li>
+                <br>
+                <li>Q:敵が上から降って来た</li>
+                <li>A:現在は仕様としていますが今後変更する可能性が高いです。<div id="torikesi">そもそも上から出す意味とは</div></li>
+                <br>
+                <li>Q:ローリング回避中に武器が出て来た</li>
+                <li>A:一応仕様です。詳しくは言いませんが色々と使えると思いたいです。</li>
+                
+            </ul>
+        </div>
+</div>
+</main>
+<!-- JavaScriptをロードする -->
+<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+<script src="../libs/bootstrap/bootstrap.min.js"></script>
+<script src="main.js"></script>
+<script src="../sub.js"></script>
+</body>
 </html>
