@@ -38,6 +38,7 @@
         ,{"Title":"必要素材計算機","Category":"math","link":"./RequiredMat/requiredMat.html","image":"./images/req_mat_site.png","Date":"2024/10/22"}
         ,{"Title":"自動配列生成機","Category":"other","link":"./AutoListGene/autolistgene.html","image":"./images/autolistgene.png","Date":"2024/12/05"}
         ,{"Title":"アイコン剣","Category":"model","link":"./modelSite/model_6.html","image":"./images/model_6.png","Date":"2023/12/05"}
+        ,{"Title":"製作中の3Dゲーム","Category":"game","link":"./game/game.html","image":"./images/game_site.png","Date":"2025/1/14"}
        ]
 }
 ]
