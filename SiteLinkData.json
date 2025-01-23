@@ -12,6 +12,7 @@
         ,{"Title":"ガチャ確率計算機","Category":"math","link":"./Gacha/Gacha.html","image":"./images/Gacha.png","Date":"2024/06/18"}
         ,{"Title":"必要素材計算機","Category":"math","link":"./RequiredMat/requiredMat.html","image":"./images/req_mat_site.png","Date":"2024/10/22"}
         ,{"Title":"自動配列生成機","Category":"other","link":"./AutoListGene/autolistgene.html","image":"./images/autolistgene.png","Date":"2024/12/05"}
+        ,{"Title":"製作中の3Dゲーム","Category":"game","link":"./game/game.html","image":"./images/game_site.png","Date":"2025/1/14"}
        ]
     ,"all":[
         {"Title":"teki1号君","Category":"model","link":"./modelSite/model_5.html","image":"./images/model_5.png","Date":"2021/10/9"}
@@ -39,6 +40,8 @@
         ,{"Title":"自動配列生成機","Category":"other","link":"./AutoListGene/autolistgene.html","image":"./images/autolistgene.png","Date":"2024/12/05"}
         ,{"Title":"アイコン剣","Category":"model","link":"./modelSite/model_6.html","image":"./images/model_6.png","Date":"2023/12/05"}
         ,{"Title":"製作中の3Dゲーム","Category":"game","link":"./game/game.html","image":"./images/game_site.png","Date":"2025/1/14"}
+        ,{"Title":"2025アイコン","Category":"image","link":"./imageSite/2025Icon.html","image":"./images/2025Icon_site.png","Date":"2025/1/16"}
+        ,{"Title":"基準を決めて並び替える","Category":"fightdebug","link":"./fightbug/sort.html","image":"./images/debug_3_site.png","Date":"2025/1/23"}
        ]
 }
 ]

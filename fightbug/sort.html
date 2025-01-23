@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../images/SiteIcon.png">
+	<title>基準を決めて並び替える</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../publicset.css">
+    <link rel="stylesheet" href="./custom_fb.css">
+	<style>
+		table{
+			margin: 0 2.5% 10px 2.5%;
+			width: 95%;
+			border: 1px solid black;
+		}
+		table tr td{
+			width: 30%;
+			border: 1px solid black;
+			text-align: center;
+		}
+	</style>
+</head>
+<body id="top">
+	
+	<!-- Header(Start) -->
+	<header class="head_active">
+		<nav class="navbar navbar-expand-md nav_fightdebug">
+			<div class="container-fluid">
+				<a href="#" class="navbar-brand-nonradius navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <img src="../images/menu.png">
+                </a>
+				<a class="navbar-brand" href="../index.html">
+					<img src="../images/SiteIcon.png">Portfolio
+				</a>
+				<ul class="gonav">
+				<a class="navbar-brand" href="#top">
+					<li>Top</li>
+				</a>
+				<a class="navbar-brand" href="#kuwasiku_2">
+					<li>CodeExpo</li>
+				</a>
+				<a class="navbar-brand" href="#Conclusion_contents">
+					<li>Conclusion</li>
+				</a>
+			</ul>
+			</div>
+			<!--オフキャンバス↓-->
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+				<div class="offcanvas-header nav_fightdebug">
+				  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+				  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body bg_fightbug">
+				  <ul id="offcanvas_linkList" data-bs-dismiss="offcanvas">
+				  </ul>
+				</div>
+			  </div>
+			  <!--オフキャンバス↑-->
+		</nav>
+	</header>
+	<!-- Header(End) -->
+
+	<!-- Main(Start) -->
+	<main class="row container">
+        <div class="col-md-2" id="sub">
+            <div>
+                <p>更新履歴</p>
+                <ul>
+                    <li>2025/1/23:作成</li>
+                </ul>
+            </div>
+        </div>
+		<div class="col-md-2 d-sm-none" id="sub">
+            <div>
+                <p>目次</p>
+                <ul>
+                    <a href="#kuwasiku"><li>実際どうするの</li></a>
+                    <a href="#kuwasiku_2"><li>補足と解説</li></a>
+                    <a href="#Conclusion_contents"><li>結論</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8" id="main">
+		<h1>基準を決めて並び替える</h1>
+        <p>C#には昇順、降順を手軽に行える関数がデフォルトで存在しています。このSort関数はdatetime型などにも使えるためお世話になる人も多いと思います。というかお世話になりました。
+			<br>しかしソートをする時こういった場面が出てくる時があります。
+			<br>このデータを
+			<table>
+				<tr>
+					<td>日付</td>
+					<td>名前</td>
+					<td>数値</td>
+				</tr>
+				<tr>
+					<td>1/2</td>
+					<td>2番目</td>
+					<td>200</td>
+				</tr>
+				<tr>
+					<td>1/3</td>
+					<td>3番目</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>1/1</td>
+					<td>1番目</td>
+					<td>300</td>
+				</tr>
+			</table>
+			<br> ↓こう並び替えたい<br>
+			<table>
+				<tr>
+					<td>日付</td>
+					<td>名前</td>
+					<td>数値</td>
+				</tr>
+				<tr>
+					<td>1/1</td>
+					<td>1番目</td>
+					<td>300</td>
+				</tr>
+				<tr>
+					<td>1/2</td>
+					<td>2番目</td>
+					<td>200</td>
+				</tr>
+				<tr>
+					<td>1/3</td>
+					<td>3番目</td>
+					<td>100</td>
+				</tr>
+			</table>
+			オブジェクト型の変数なら楽にできますがもし別々の配列でソートするとこうなってしまいます。
+			<table>
+				<tr>
+					<td>日付</td>
+					<td>名前</td>
+					<td>数値</td>
+				</tr>
+				<tr>
+					<td>1/1</td>
+					<td>1番目</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>1/2</td>
+					<td>2番目</td>
+					<td>200</td>
+				</tr>
+				<tr>
+					<td>1/3</td>
+					<td>3番目</td>
+					<td>300</td>
+				</tr>
+			</table>
+			数値まで昇順に並び替えられてる
+		</p>
+        <h2 id="kuwasiku">実際どうするの</h2>
+        <p>プログラムはUnityで作って表示していますがC#ならどこでも動くと思います。<br>今回は日付が格納された配列を昇順にソートします。</p>
+        <pre id="code_text">
+
+  using System;//これがないとDateTime型が使えない
+  public class ArraySort : MonoBehaviour
+  {
+	//　1/2,1/3,1/1が格納された配列を作成
+	DateTime[] Datearray = { new DateTime(2025, 1, 2), new DateTime(2025, 1, 3), new DateTime(2025, 1, 1) };
+	// 1番目,3番目,2番目が格納された配列を作成
+	string[] stringarray = { "1番目", "3番目", "2番目" };
+	// 100,300,200が格納された配列を作成
+	int[] intarray = { 100, 300, 200 };
+	void Start()
+	{
+		Arraysort();//ソートする関数を呼び出し
+	}
+
+	void Arraysort()
+	{
+		DateTime[] tempDatearray = Datearray;//ソートする配列を一時格納
+
+		//他の配列は要素数だけを呼び出す
+		DateTime[] sortedDatearray = new DateTime[Datearray.Length];
+		string[] sortedStringarray = new string[stringarray.Length];
+		int[] sortedIntarray = new int[intarray.Length];
+
+		//配列をソート
+		Array.Sort(tempDatearray);
+
+		//配列の長さ分繰り返す
+		for (int n = 0; n &lt; tempDatearray.Length; n++)
+		{
+			for (int m = 0; m &lt; Datearray.Length; m++)
+			{
+				//格納された場所を探して見つけたら見つけた箇所をソート済配列に格納する
+				if (Datearray[m] == tempDatearray[n])
+				{
+					//データの順番を入れ替える
+					sortedDatearray[n] = Datearray[m];
+					sortedStringarray[n] = stringarray[m];
+					sortedIntarray[n] = intarray[m];
+
+                    //重複対策
+                    Datearray[m] = new DateTime(1, 1, 1);
+
+					continue;//次のループへ
+				}
+			}
+		}
+
+		//コンソールに表示するためのプログラム
+		for (int n = 0; n &lt; sortedDatearray.Length; n++)
+		{
+			Debug.Log("日付:" + sortedDatearray[n].Month + "/" + sortedDatearray[n].Day + ",名前:" + sortedStringarray[n] + ",数値:" + sortedIntarray[n]);
+		}
+
+	}
+  }
+
+		</pre>
+		<p>実行結果</p>
+		<img src="../images/arraysort/result.png" width="90%">
+		<p>うまくソートできてますね</p>
+		<h2 id="kuwasiku_2">補足と解説</h2>
+		<p>このソートプログラム注意点が二個ありまして</p>
+		<p>まとめてソートするときは要素数が同じじゃないとエラーが出やすいです。</p>
+		<p>また、重複したデータのソートが正確にできません。</p>
+		<p>毎回同じ結果が発生するとは限らないので重複がないデータにするか順番が毎回変わることを許容していただければ...</p>
+		<pre id="code_text">
+	//配列の長さ分繰り返す
+	for (int n = 0; n &lt; tempDatearray.Length; n++)
+	{
+		for (int m = 0; m &lt; Datearray.Length; m++)
+		{
+			//格納された場所を探して見つけたら見つけた箇所をソート済配列に格納する
+			if (Datearray[m] == tempDatearray[n])
+			{
+				//データの順番を入れ替える
+				sortedDatearray[n] = Datearray[m];
+				sortedStringarray[n] = stringarray[m];
+				sortedIntarray[n] = intarray[m];
+	
+				//重複対策
+				Datearray[m] = new DateTime(1, 1, 1);
+	
+				bleak;//ループを中断して次へ
+			}
+		}
+	}
+		</pre>
+		<p>この部分を主に解説していきます。といってもやっていることは単純で</p>
+		<img src="../images/arraysort/expo_img_1t.png" width="90%">
+		<p>ざっくり解説するとこうなります。<br>
+		基準となる配列を数値などに変えても問題なく機能しました。</p>
+        <h2 id="Conclusion_contents">結論</h2>
+        <p>今回は一つの配列を基準にして複数の配列をソートするプログラムを解説しました。</p>
+		<p>重複したデータのソートが安定しないという欠点はありますがうまく使って頂けると幸いです。</p>
+		<p>ではご高覧ありがとうございました〜</p>
+        </div>
+        <div class="col-md-2 d-none d-sm-none d-md-block" id="sub">
+            <div>
+                <p>目次</p>
+                <ul>
+                    <a href="#kuwasiku"><li>実際どうするの</li></a>
+                    <a href="#kuwasiku_2"><li>補足と解説</li></a>
+                    <a href="#Conclusion_contents"><li>結論</li></a>
+                </ul>
+            </div>
+        </div>
+	</main>
+	<!-- Main(End) -->
+
+	<!-- Footer(Start) -->
+	<footer>
+		Copyright © black(ueda ryouta)2024 All rights reserved.
+	</footer>
+	<!-- Footer(End) -->
+
+	<!-- JavaScript -->
+	<script src="../libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="../libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../sub.js"></script>
+</body>
+</html>
